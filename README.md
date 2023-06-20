@@ -7,3 +7,6 @@ Action Plan:
 
 - Figure out the components in each page
 - Split up the work
+
+## Overall Concept:
+
