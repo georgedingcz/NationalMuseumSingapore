@@ -106,7 +106,7 @@ https://trello.com/invite/b/KhI36xOk/ATTIef4ea02bcd8b04ee0d26be98e30ffd098B6710B
 
 
 ## Database stuff (to then be included in our googlesheet)
-- user
+- user -> this means we'll need to be able to create new users
     - name
     - exhibitions chosen
     - (etc.)
@@ -116,4 +116,3 @@ https://trello.com/invite/b/KhI36xOk/ATTIef4ea02bcd8b04ee0d26be98e30ffd098B6710B
     - date
     - tickets
         - price
-
