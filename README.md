@@ -8,6 +8,8 @@ Action Plan:
 - Figure out the components in each page
 - Split up the work
 
+## Wireframe
+https://www.figma.com/file/4sBeKefkBS5UzAGmY4yHeb/NSM?type=design&node-id=0%3A1&mode=design&t=4KwHMzyzEtGzvV4L-1
 
 ### https://www.figma.com/proto/LOcJaNobmKpiFwERVDu6hJ/NMS-Hi-Fi-1.0?page-id=0%3A1&type[…]2C2506%2C0.26&scaling=scale-down&starting-point-node-id=17%3A3
 
