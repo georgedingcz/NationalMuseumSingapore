@@ -18,6 +18,7 @@ https://trello.com/invite/b/KhI36xOk/ATTIef4ea02bcd8b04ee0d26be98e30ffd098B6710B
 ## Overall Concept:
 
 ## General components (belong to all)
+<!-- I think it's probably 1 Navigation component with Link tags surrounding <img> <div> (for buy tickets) and <ul><li> -->
 - NAV (in horizontal flex) (not sure if it's 3 components in this case)
     - NSM logo
     - (link to) buy tickets
@@ -46,7 +47,9 @@ https://trello.com/invite/b/KhI36xOk/ATTIef4ea02bcd8b04ee0d26be98e30ffd098B6710B
         - screenshot of what to expect
     - Component 7 of logos
         - two awards
-    - Component 8 (link to) contact page 
+    - Component 8 (link to) contact page
+    - Component 9 (Optional)
+        - Other navigation links
 
 ## Page 1 -- Homepage
 - Component 1 (nsm image)
