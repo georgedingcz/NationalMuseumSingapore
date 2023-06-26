@@ -96,28 +96,49 @@ https://trello.com/invite/b/KhI36xOk/ATTIef4ea02bcd8b04ee0d26be98e30ffd098B6710B
     - (link to) map
     
 ## Page 3 -- Itinerary Page
-- login (to include)
+- Component 5
+    - Itinerary Planner
+    - Drop-down boxes
+    - Show my itinerary button
 
 ## Page 4 -- Exhibitions Page
-
+- Component 6
+    - Our exhibitions
+        - Header
+        - Drop-down boxes
+        - Filter button
+- Component 7
+    - Exhibtions (sets)
+        - Image
+        - Description
 ## Page 5 -- Tours Page
+- Component 8 
+    -Header
+    -Description of guided tours
+- Component 9 
+    - Tours (sets)
+        - Image
+        - Language selection
 
-## Page 6 -- Museum Map Page (BONUS ONLY)
-
-//those below were not touched upon by UX team
-## Page -- Retail & Dining Page
-## Page -- Research & Publications Page
-## Page -- Support Page
-
+## Bonus Only
+### Page 6 -- Museum Map Page
+### Page 7 -- Retail & Dining Page
+### Page 8 -- Research & Publications Page
+### Page 9 -- Support Page
 
 ## Database stuff (to then be included in our googlesheet)
-- user -> this means we'll need to be able to create new users
-    - name
-    - exhibitions chosen
-    - (etc.)
-- exhibition
-    - name
-    - content
-    - date
-    - tickets
-        - price
+- Sheet 1 (User)
+    - Username
+    - Password
+    - Name of the user
+    - Ticket(s) purchased
+- Sheet 2 (Exhibition)
+    - Exhibition name
+    - Time and/or Date of exhibition
+    - Description of exhibition
+    - Price of exhibition
+    - Ticket for the exhibition
+- Sheet 3 (Ticket)
+    - (R) Exhibition name
+    - (R) Time and/or Date of exhibition
+    - (R) Price of exhibition
