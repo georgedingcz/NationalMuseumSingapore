@@ -3,7 +3,7 @@ import Card from "../../components/Card/Card";
 
 import { Link } from "react-router-dom";
 
-export default function Exhibition() {
+export default function Exhibitions() {
 
     const card = {
         id : "aonw",
