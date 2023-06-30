@@ -11,25 +11,26 @@ import CheckOutPage from "../TicketingPage/CheckOutPage";
 import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
 import ItineraryCard from "../../components/Card/ItineraryCard/ItineraryCard";
+import MapPage from "../MapPage/MapPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
   return (
     <main className="App">
-                <NavBar user={user} setUser={setUser} />
-
+      <NavBar user={user} setUser={setUser} />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/map" element={<MapPage />} />
+        <Route path="/exhibition" element={<Exhibition />} />{" "}
+        <Route path="/ticketing" element={<TicketingPage />} />
+        <Route path="/check-out" element={<CheckOutPage />} />
       </Routes>
       {user ? (
         <>
           <Routes>
             {/* <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} /> */}
-            <Route path="/ticketing" element={<TicketingPage />} />
-            <Route path="/check-out" element={<CheckOutPage />} />
-            <Route path="/exhibition" element={<Exhibition />} />
-            <Route path="/itinerary" element={<ItineraryCard/>}/>
+            <Route path="/itinerary" element={<ItineraryCard />} />
           </Routes>
         </>
       ) : (
