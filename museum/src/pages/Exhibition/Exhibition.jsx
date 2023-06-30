@@ -1,9 +1,12 @@
 import "../../pages/Exhibition/Exhibition.css";
-import ExhibitionCard from "../../components/Exhibition/ExhibitionCard";
+import ExhibitionCard from "../../components/Card/ExhibitionCard";
+
+import { Link } from "react-router-dom";
 
 export default function Exhibition() {
 
     const card = {
+        id : "aonw",
         img : "https://picsum.photos/id/237/300/200",
         title : "An Old New World: Digital Edition",
         dura : "EXHIBITION | PERMANENT",
@@ -12,6 +15,7 @@ export default function Exhibition() {
     };
 
     const card2 = {
+        id : "svot",
         img : "https://picsum.photos/id/192/300/200",
         title : "Singapore, Very Old Tree",
         dura : "EXHIBITION | PERMANENT",
@@ -22,8 +26,14 @@ export default function Exhibition() {
     return (
         <>  
             <div className="page-container">
-                <ExhibitionCard card = { card } />
-                <ExhibitionCard card = { card2 } />
+                <div className="row">
+                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
+                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
+                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
+                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
+                </div>
             </div>
         </>
     );
