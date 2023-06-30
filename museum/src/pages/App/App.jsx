@@ -16,7 +16,7 @@ export default function App() {
     <main className="App">
       {user ? (
         <>
-          <NavBar user={user} setUser={setUser}/>
+          <NavBar user={user} setUser={setUser} />
           <Routes>
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
@@ -26,8 +26,10 @@ export default function App() {
           </Routes>
         </>
       ) : (
-        <AuthPage setUser={setUser} user={user}/>
+        <AuthPage setUser={setUser} user={user} />
       )}
     </main>
   );
 }
+
+//comment here to test branch
