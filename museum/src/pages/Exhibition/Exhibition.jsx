@@ -1,5 +1,7 @@
 import "../../pages/Exhibition/Exhibition.css";
 import Card from "../../components/Card/Card";
+import HeaderImage from "../../components/HeaderImage/HeaderImage";
+import Dropbox from "../../components/Dropbox/Dropbox";
 
 import { Link } from "react-router-dom";
 
@@ -14,9 +16,25 @@ export default function Exhibition() {
         info : ["Free admissions", "Free admissions"]
     };
 
+    const src = "https://picsum.photos/id/237/300/200";
+
+    const dropbox = {
+        type : ["For All", "Adults", "Children", "Families", "Seniors", "Special Needs", "Students", "Teachers"],
+        status : ["Current and Upcoming", "Past"],
+        date : ["Current and Upcoming", "Past"]
+    }
+
     return (
         <>  
             <div className="page-container">
+                <div className="header-container">
+                    <HeaderImage src = {src} />
+                </div>
+
+                <h1>Our Exhibitions</h1>
+
+                <Dropbox dropbox = {dropbox} />
+                
                 <div className="row">
                     <Link className="link" to={card.id}><Card card = { card } /></Link>
                     <Link className="link" to={card.id}><Card card = { card } /></Link>
