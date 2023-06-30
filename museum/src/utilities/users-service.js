@@ -9,7 +9,7 @@ export async function signUp(userData) {
   // Baby step by returning whatever is sent back by the server
   // Persist the "token"
   localStorage.setItem("token", token);
-  return token;
+  return getUser();
 }
 
 export function getToken() {
@@ -32,3 +32,7 @@ export function getUser() {
   // If there's a token, return the user in the payload, otherwise return null
   return token ? JSON.parse(atob(token.split(".")[1])).user : null;
 }
+
+export function logOut() {
+    localStorage.removeItem('token');
+  }

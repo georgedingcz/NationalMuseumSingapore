@@ -15,7 +15,7 @@ export default function App() {
     <main className="App">
       {user ? (
         <>
-          <NavBar />
+          <NavBar user={user} setUser={setUser}/>
           <Routes>
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
@@ -24,7 +24,7 @@ export default function App() {
           </Routes>
         </>
       ) : (
-        <AuthPage />
+        <AuthPage setUser={setUser} user={user}/>
       )}
     </main>
   );
