@@ -1,7 +1,7 @@
-export default function ExhibitionCardMoreInfo(props) {
+export default function CardMoreInfo(props) {
   return (
     <>
-      <div className="exhibition-moreinfo">
+      <div className="moreinfo">
           <ul>
             {props.info.map((info) => (
               <li>{info}</li>

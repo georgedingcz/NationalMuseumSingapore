@@ -1,5 +1,5 @@
 import "../../pages/Exhibition/Exhibition.css";
-import ExhibitionCard from "../../components/Card/ExhibitionCard";
+import Card from "../../components/Card/Card";
 
 import { Link } from "react-router-dom";
 
@@ -27,12 +27,12 @@ export default function Exhibition() {
         <>  
             <div className="page-container">
                 <div className="row">
-                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
-                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
-                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
-                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
-                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
-                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card2.id}><Card card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card2.id}><Card card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card2.id}><Card card = { card2 } /></Link>
                 </div>
             </div>
         </>
