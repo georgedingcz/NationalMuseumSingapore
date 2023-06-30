@@ -1,4 +1,4 @@
-import "../MuseumCard/MuseumCard.css"
+import "./MuseumCard.css";
 
 export default function MuseumCardImage() {
   return (

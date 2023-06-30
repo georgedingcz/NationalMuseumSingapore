@@ -12,6 +12,7 @@ import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
 import MapPage from "../MapPage/MapPage";
 import ItineraryPage from "../ItineraryPage/ItineraryPage";
+import Footer from "../../components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -41,6 +42,7 @@ export default function App() {
           ></Route>
         </Routes>
       )}
+      <Footer/>
     </main>
   );
 }
