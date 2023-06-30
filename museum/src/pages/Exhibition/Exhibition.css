@@ -40,23 +40,23 @@
 .image-container img {
 }
 
-.exhibition-title {
+.title {
     padding: 0 25px;
 }
 
-.exhibition-description {
+.description {
     padding: 0 25px;
 }
 
-.exhibition-duration {
+.duration {
     padding: 0 25px;
 }
 
-.exhibition-moreinfo {
+.moreinfo {
     padding: 0 25px;
 }
 
-.exhibition-moreinfo ul {
+.moreinfo ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
