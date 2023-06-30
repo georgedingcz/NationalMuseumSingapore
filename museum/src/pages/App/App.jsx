@@ -9,6 +9,7 @@ import NavBar from "../../components/NavBar/NavBar";
 import TicketingPage from "../TicketingPage/TicketingPage";
 import CheckOutPage from "../TicketingPage/CheckOutPage";
 import Exhibition from "../Exhibition/Exhibition";
+import ExhibitionDetails from "../Exhibition/ExhibitionDetails";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -23,6 +24,7 @@ export default function App() {
             <Route path="/ticketing" element={<TicketingPage />} />
             <Route path="/check-out" element={<CheckOutPage />} />
             <Route path="/exhibition" element={<Exhibition />} />
+            <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
           </Routes>
         </>
       ) : (

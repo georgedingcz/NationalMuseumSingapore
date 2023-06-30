@@ -14,25 +14,16 @@ export default function Exhibition() {
         info : ["Free admissions", "Free admissions"]
     };
 
-    const card2 = {
-        id : "svot",
-        img : "https://picsum.photos/id/192/300/200",
-        title : "Singapore, Very Old Tree",
-        dura : "EXHIBITION | PERMANENT",
-        desc : "Created by renowned local photographer and artist Robert Zhao, this exhibit at the bottom of the Glass Rotunda showcases 17 images of trees around Singapore and highlight intimate stories of each. ...",
-        info : ["Free admissions", "Free admissions"]
-    };
-
     return (
         <>  
             <div className="page-container">
                 <div className="row">
                     <Link className="link" to={card.id}><Card card = { card } /></Link>
-                    <Link className="link" to={card2.id}><Card card = { card2 } /></Link>
                     <Link className="link" to={card.id}><Card card = { card } /></Link>
-                    <Link className="link" to={card2.id}><Card card = { card2 } /></Link>
                     <Link className="link" to={card.id}><Card card = { card } /></Link>
-                    <Link className="link" to={card2.id}><Card card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
                 </div>
             </div>
         </>
