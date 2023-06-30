@@ -9,8 +9,7 @@ import TicketingPage from "../TicketingPage/TicketingPage";
 import CheckOutPage from "../TicketingPage/CheckOutPage";
 
 export default function App() {
-  const [user, setUser] = useState();
-
+  const [user, setUser] = useState(null);
   return (
     <main className="App">
       {user ? (
