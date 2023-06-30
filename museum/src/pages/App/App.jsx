@@ -5,6 +5,7 @@ import NewOrderPage from "../NewOrderPage/NewOrderPage";
 import AuthPage from "../AuthPage/AuthPage";
 import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
+import TicketingPage from "../TicketingPage/TicketingPage";
 
 export default function App() {
   const [user, setUser] = useState();
@@ -16,6 +17,7 @@ export default function App() {
           <Routes>
             <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} />
+            <Route path="/ticketing" element={<TicketingPage />} />
           </Routes>
         </>
       ) : (
