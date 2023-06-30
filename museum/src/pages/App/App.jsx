@@ -8,7 +8,7 @@ import OrderHistoryPage from "../OrderHistoryPage/OrderHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
 import TicketingPage from "../TicketingPage/TicketingPage";
 import CheckOutPage from "../TicketingPage/CheckOutPage";
-import Exhibition from "../Exhibition/Exhibition";
+import Exhibition from "../Exhibition/Exhibitions";
 
 export default function App() {
   const [user, setUser] = useState(getUser());

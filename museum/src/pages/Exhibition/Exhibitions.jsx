@@ -1,4 +1,4 @@
-import "../../pages/Exhibition/Exhibition.css";
+import "../../pages/Exhibition/Exhibitions.css";
 import Card from "../../components/Card/Card";
 
 import { Link } from "react-router-dom";

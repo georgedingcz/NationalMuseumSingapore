@@ -19,11 +19,11 @@
 }
 
 .card-container {
-    transition: 0.1s;
+    transition: 0.5s;
     background-color: white;
     width: 300px;
     margin: 10px;
-    outline: 0px solid #45779f;
+    outline: 3px solid white;
     text-align: left;
     padding: 0 0 40px 0;
 }
