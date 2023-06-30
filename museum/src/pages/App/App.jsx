@@ -10,8 +10,8 @@ import TicketingPage from "../TicketingPage/TicketingPage";
 import CheckOutPage from "../TicketingPage/CheckOutPage";
 import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
-import ItineraryCard from "../../components/Card/ItineraryCard/ItineraryCard";
 import MapPage from "../MapPage/MapPage";
+import ItineraryPage from "../ItineraryPage/ItineraryPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -30,7 +30,7 @@ export default function App() {
           <Routes>
             {/* <Route path="/orders" element={<OrderHistoryPage />} />
             <Route path="/orders/new" element={<NewOrderPage />} /> */}
-            <Route path="/itinerary" element={<ItineraryCard />} />
+            <Route path="/itinerary" element={<ItineraryPage />} />
           </Routes>
         </>
       ) : (

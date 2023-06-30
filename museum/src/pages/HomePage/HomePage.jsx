@@ -1,6 +1,6 @@
 import ExhibitionCard from "../../components/Card/ExhibitionCard";
 import MuseumCard from "../../components/Card/MuseumCard/MuseumCard";
-import ItineraryButton from "../../components/ItineraryButton/ItineraryButton";
+import ItineraryButton from "../../components/Itinerary/ItineraryButton";
 import MapButton from "../../components/MapButton/MapButton";
 import TicketingButton from "../../components/TicketingButton/TicketingButton";
 import Exhibition from "../Exhibition/Exhibition";
