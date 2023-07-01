@@ -11,18 +11,18 @@ export default function NavBar({ user, setUser }) {
   }
   return (
     <nav>
-      <Link to="/orders">Home</Link>
+      {/* <Link to="/orders">Order History</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
-      &nbsp; | &nbsp;
-      <Link to="/exhibition">Exhibitions</Link>
-      &nbsp; | &nbsp;
-      <Link to="/exhibition">Itinerary</Link>
-      &nbsp;&nbsp;<span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;
+      <Link to="/orders/new">New Order</Link> */}
+      {/* &nbsp;&nbsp;<span>Welcome, {user.name}</span> */}
+      <Link to="/">Home</Link>&nbsp; | &nbsp;
+      <Link to="/ticketing">Ticketing</Link>&nbsp; | &nbsp;
+      <Link to="/exhibition">Exhibition</Link>&nbsp; | &nbsp;
+      <Link to="/itinerary">Itinerary</Link>&nbsp; | &nbsp;
+      <Link to="/auth">Log In</Link>&nbsp; | &nbsp;
       <Link to="" onClick={handleLogOut}>
         Log Out
-      </Link>{" "}
+      </Link>
     </nav>
   );
 }
