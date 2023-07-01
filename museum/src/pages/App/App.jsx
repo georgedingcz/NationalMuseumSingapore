@@ -27,15 +27,14 @@ export default function App() {
           <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
           <Route path="/ticketing" element={<TicketingPage />} />
           <Route path="/check-out" element={<CheckOutPage />} />
-          {user ? (
-            <Route path="/itinerary" element={<ItineraryPage />} />
-          ) : (
-            <Route
-              path="/auth"
-              element={<AuthPage setUser={setUser} user={user} />}
-            />
-          )}
-          {/* Redirect to the default page */}
+          <Route
+            path="/itinerary"
+            element={user ? <ItineraryPage /> : <Navigate to="/auth" replace />}
+          />
+          <Route
+            path="/auth"
+            element={<AuthPage setUser={setUser} user={user} />}
+          />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </>
