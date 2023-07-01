@@ -10,8 +10,9 @@ import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
 import MapPage from "../MapPage/MapPage";
 import ItineraryPage from "../ItineraryPage/ItineraryPage";
-import Footer from "../../components/Footer/Footer";
 import ExhibitionDetails from "../Exhibition/ExhibitionDetails";
+import Subscription from "../../components/Footer/Subscription";
+import Footer from "../../components/Footer/Footer";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -29,6 +30,7 @@ export default function App() {
             <Route path="/ticketing" element={<TicketingPage />} />
             <Route path="/check-out" element={<CheckOutPage />} />
             <Route path="/itinerary" element={<ItineraryPage />} />
+            <Route path="/subscribe" element={<Subscription/>}/>
           </Routes>
         </>
       ) : (
@@ -45,6 +47,7 @@ export default function App() {
             <Route path="/ticketing" element={<TicketingPage />} />
             <Route path="/check-out" element={<CheckOutPage />} />
             <Route path="/itinerary" element={<AuthPage setUser={setUser} />} />
+            <Route path="/subscribe" element={<Subscription/>}/>
           </Routes>
         </>
       )}

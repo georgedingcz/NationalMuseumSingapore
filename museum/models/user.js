@@ -1,9 +1,17 @@
 const mongoose = require("mongoose");
+const Exhibition = require("./ExhibitionSchema");
 const Schema = mongoose.Schema;
 // Add the bcrypt library
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6; // 6 is a reasonable value
+
+const TicketingSchema = new Schema({
+  id: { type: Number, required: true, unique: true },
+  exhibitions: [Exhibition],
+  price: { type: Number, required: true, max: 9999 },
+  purchase_date: Date,
+});
 
 const userSchema = new Schema(
   {
@@ -21,6 +29,7 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
+    ticket: [TicketingSchema],
   },
   {
     timestamps: true,
