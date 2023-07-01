@@ -11,6 +11,7 @@ import HomePage from "../HomePage/HomePage";
 import MapPage from "../MapPage/MapPage";
 import ItineraryPage from "../ItineraryPage/ItineraryPage";
 import Footer from "../../components/Footer/Footer";
+import ExhibitionDetails from "../Exhibition/ExhibitionDetails";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -21,8 +22,12 @@ export default function App() {
       {user ? (
         <>
           <Routes>
-            {/* <Route path="/orders" element={<OrderHistoryPage />} />
-            <Route path="/orders/new" element={<NewOrderPage />} /> */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/map" element={<MapPage />} />
+            <Route path="/exhibition" element={<Exhibition />} />
+            <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
+            <Route path="/ticketing" element={<TicketingPage />} />
+            <Route path="/check-out" element={<CheckOutPage />} />
             <Route path="/itinerary" element={<ItineraryPage />} />
           </Routes>
         </>
@@ -35,7 +40,8 @@ export default function App() {
             />
             <Route path="/" element={<HomePage />} />
             <Route path="/map" element={<MapPage />} />
-            <Route path="/exhibition" element={<Exhibition />} />{" "}
+            <Route path="/exhibition" element={<Exhibition />} />
+            <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
             <Route path="/ticketing" element={<TicketingPage />} />
             <Route path="/check-out" element={<CheckOutPage />} />
             <Route path="/itinerary" element={<AuthPage setUser={setUser} />} />
