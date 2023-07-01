@@ -6,7 +6,7 @@ import VisitorType from "../../components/Itinerary/VisitorType";
 
 export default function ItineraryPage() {
   return (
-    <>
+    <div className="page-container">
       <div>
         <ItineraryPicture />
       </div>
@@ -23,6 +23,6 @@ export default function ItineraryPage() {
       <div>
         <VisitorType />
       </div>
-    </>
+    </div>
   );
 }
