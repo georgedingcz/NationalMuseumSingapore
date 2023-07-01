@@ -10,7 +10,7 @@ const ExhibitionSchema = new Schema({
     start_date: Date,
     end_date: Date,
     start_time: String,
-    start_time: String,
+    end_time: String,
     additional_notes: {
         location: String,
         time: String,
