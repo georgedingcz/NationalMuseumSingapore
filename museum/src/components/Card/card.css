@@ -1,0 +1,28 @@
+.card-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 100px;
+    gap: 10px;
+    list-style: none;
+    box-sizing: border-box;
+    padding: 3%;
+    border-radius: 10px;
+    background-color: antiquewhite;
+    text-align: justify;
+}
+
+
+.card-container img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.card-container .description {
+    display: flex;
+    
+}
+
+.card-container ul {
+    list-style: none;
+}

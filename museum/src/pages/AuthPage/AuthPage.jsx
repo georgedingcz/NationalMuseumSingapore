@@ -11,28 +11,24 @@ export default function AuthPage({ setUser }) {
   };
 
   return (
-    <main>
-      <div className="page-container">
-        <div className="login-signup-form">
-          <h1>Welcome!</h1>
-          <p>Login or Sign Up to continue</p>
-          {showLoginForm ? (
-            <>
-              <LoginForm setUser={setUser} />
-              <p>
-                Don't have an account?{" "}
-                <button onClick={toggleForm}>Sign Up</button>
-              </p>
-            </>
-          ) : (
-            <>
-              <SignUpForm setUser={setUser} />
-              <p>Already have an account?</p>
-              <button onClick={toggleForm}>Log In</button>
-            </>
-          )}
-        </div>
+    <div className="page-container">
+      <div className="login-signup-form">
+        <h1>Welcome!</h1>
+        <p>Login or Sign Up to continue</p>
+        {showLoginForm ? (
+          <>
+            <LoginForm setUser={setUser} />
+            <p>Don't have an account?</p>
+            <button onClick={toggleForm}>Sign Up</button>
+          </>
+        ) : (
+          <>
+            <SignUpForm setUser={setUser} />
+            <p>Already have an account?</p>
+            <button onClick={toggleForm}>Log In</button>
+          </>
+        )}
       </div>
-    </main>
+    </div>
   );
 }
