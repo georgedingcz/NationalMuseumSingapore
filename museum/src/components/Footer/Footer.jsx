@@ -6,7 +6,7 @@ import Subscription from "./Subscription";
 
 export default function Footer() {
   return (
-    <footer className="page-container">
+    <footer className="footer">
       Footer
       <div>
         <Socials />
