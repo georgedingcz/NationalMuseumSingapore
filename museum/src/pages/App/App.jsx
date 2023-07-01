@@ -42,7 +42,9 @@ export default function App() {
           ></Route>
         </Routes>
       )}
-      <Footer/>
+      <Footer />
     </main>
   );
 }
+
+//comment here to test branch

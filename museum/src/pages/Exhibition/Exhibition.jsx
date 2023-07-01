@@ -1,5 +1,7 @@
 import "../../pages/Exhibition/Exhibition.css";
-import ExhibitionCard from "../../components/Card/ExhibitionCard";
+import Card from "../../components/Card/Card";
+import HeaderImage from "../../components/HeaderImage/HeaderImage";
+import Dropbox from "../../components/Dropbox/Dropbox";
 
 import { Link } from "react-router-dom";
 
@@ -14,25 +16,32 @@ export default function Exhibition() {
         info : ["Free admissions", "Free admissions"]
     };
 
-    const card2 = {
-        id : "svot",
-        img : "https://picsum.photos/id/192/300/200",
-        title : "Singapore, Very Old Tree",
-        dura : "EXHIBITION | PERMANENT",
-        desc : "Created by renowned local photographer and artist Robert Zhao, this exhibit at the bottom of the Glass Rotunda showcases 17 images of trees around Singapore and highlight intimate stories of each. ...",
-        info : ["Free admissions", "Free admissions"]
-    };
+    const src = "https://picsum.photos/id/237/300/200";
+
+    const dropbox = {
+        type : ["For All", "Adults", "Children", "Families", "Seniors", "Special Needs", "Students", "Teachers"],
+        status : ["Current and Upcoming", "Past"],
+        date : ["Current and Upcoming", "Past"]
+    }
 
     return (
         <>  
             <div className="page-container">
+                <div className="header-container">
+                    <HeaderImage src = {src} />
+                </div>
+
+                <h1>Our Exhibitions</h1>
+
+                <Dropbox dropbox = {dropbox} />
+                
                 <div className="row">
-                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
-                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
-                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
-                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
-                    <Link className="link" to={card.id}><ExhibitionCard card = { card } /></Link>
-                    <Link className="link" to={card2.id}><ExhibitionCard card = { card2 } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
+                    <Link className="link" to={card.id}><Card card = { card } /></Link>
                 </div>
             </div>
         </>
