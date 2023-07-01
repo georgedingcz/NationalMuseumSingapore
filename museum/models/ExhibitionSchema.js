@@ -24,3 +24,4 @@ const ExhibitionSchema = new Schema({
 
 
 module.exports = model("Exhibition", ExhibitionSchema);
+module.exports = ExhibitionSchema
