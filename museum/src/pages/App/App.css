@@ -48,6 +48,19 @@ body {
  justify-self: flex-end;
  padding: 1%;
  border: 1px red solid;
+ background-color: rgba(0, 46, 89, 1);
+ color: white;
+ display: grid;
+ grid-template-columns: repeat(2, 1fr);
+ gap: 10px;
+ padding: 2%;
+ cursor: pointer;
+ align-items: center;
+ justify-items: center;
+}
+
+.footer :hover {
+  color: yellow;
 }
 
 nav {
