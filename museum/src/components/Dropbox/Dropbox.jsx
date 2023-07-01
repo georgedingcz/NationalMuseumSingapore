@@ -1,5 +1,5 @@
 export default function Dropbox(props) {
-      
+
   const arrayNames = Object.keys(props.dropbox);
   const arrayValues = Object.values(props.dropbox);
   const consistOfDate = arrayNames.includes("date");
@@ -9,7 +9,7 @@ export default function Dropbox(props) {
       {consistOfDate ? (
         <>
           {arrayNames.map((names, index) => (
-            names == "date" ? (
+            names === "date" ? (
                   <input type="date" id="date" className="date" name="date"></input>
             ) : (
                   <select name={names} id={names} className={names}>
