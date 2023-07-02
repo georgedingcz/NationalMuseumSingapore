@@ -11,7 +11,7 @@ const Exhibition = require("../models/exhibition");
             res.status(500).json({err})
         }
     }
-}
+  }
 
   const listAll = async (req, res) => {
     try {

@@ -8,7 +8,6 @@ const SALT_ROUNDS = 6; // 6 is a reasonable value
 
 const ItinerarySchema = new Schema({
   id: { type: Number, required: true, unique: true },
-  exhibitions: [Exhibition],
   dateOfVisit: Date,
 });
 
