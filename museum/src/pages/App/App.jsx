@@ -10,9 +10,14 @@ import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
 import MapPage from "../MapPage/MapPage";
 import ItineraryPage from "../ItineraryPage/ItineraryPage";
-import Footer from "../../components/Footer/Footer";
 import ExhibitionDetails from "../Exhibition/ExhibitionDetails";
+import Subscription from "../../components/Footer/Subscription";
+import Footer from "../../components/Footer/Footer";
+import ItinerarySelectPage from "../ItineraryPage/ItinerarySelectPage";
 import { Navigate } from "react-router-dom";
+import ContactUs from "../ContactUs/ContactUs";
+import PrivacyStatement from "../PrivacyStatement/PrivacyStatement";
+import TermsOfUse from "../TermsOfUse/TermsOfUse";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -27,9 +32,19 @@ export default function App() {
           <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
           <Route path="/ticketing" element={<TicketingPage />} />
           <Route path="/check-out" element={<CheckOutPage />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/privacy" element={<PrivacyStatement />} />
+          <Route path="/terms-of-use" element={<TermsOfUse />} />
+
           <Route
             path="/itinerary"
             element={user ? <ItineraryPage /> : <Navigate to="/auth" replace />}
+          />
+          <Route
+            path="/itinerary/select"
+            element={
+              user ? <ItinerarySelectPage /> : <Navigate to="/auth" replace />
+            }
           />
           <Route
             path="/auth"
