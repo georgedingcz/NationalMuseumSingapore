@@ -27,7 +27,11 @@ export default function Footer() {
       <div>
         <GeneralInfo />
       </div>
-      <div>Links to other pages</div>
+      <div>
+        <br />
+        Links to other pages
+        <br />
+      </div>
       <div>
         <QRcode />
       </div>
