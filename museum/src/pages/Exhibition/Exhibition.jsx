@@ -2,7 +2,6 @@ import "../../pages/Exhibition/Exhibition.css";
 import Card from "../../components/Card/Card";
 import HeaderImage from "../../components/HeaderImage/HeaderImage";
 import Dropbox from "../../components/Dropbox/Dropbox";
-
 import { Link } from "react-router-dom";
 
 export default function Exhibition() {
