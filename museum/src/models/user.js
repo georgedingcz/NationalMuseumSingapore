@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
-const Exhibition = require("./exhibition");
 const Schema = mongoose.Schema;
 // Add the bcrypt library
 const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6; // 6 is a reasonable value
 
-const ItinerarySchema = new Schema({
+const itinerarySchema = new Schema({
   id: { type: Number, required: true, unique: true },
-  dateOfVisit: Date,
+  dateOfVisit: { type: Date },
+  exhibition: [{ type: Schema.Types.ObjectId, ref: "Exhibition" }],
 });
 
 const userSchema = new Schema(
@@ -27,7 +27,7 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
-    itinerary: [ItinerarySchema],
+    itinerary: [itinerarySchema],
   },
   {
     timestamps: true,
