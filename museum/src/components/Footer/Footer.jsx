@@ -1,8 +1,9 @@
+import { Link } from "react-router-dom";
 import Awards from "./Awards";
-import NSMlogo from "./NSMlogo";
 import QRcode from "./QRcode";
+import "./Footer.css";
 import Socials from "./Socials";
-import Subscription from "./Subscription";
+import GeneralInfo from "./GeneralInfo";
 
 export default function Footer() {
   return (
@@ -11,21 +12,45 @@ export default function Footer() {
         <Socials />
       </div>
       <div>
-        <NSMlogo />
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/d/dd/NSMLogo.png"
+          alt="NSM text logo"
+          className="nsmLogo"
+        />
       </div>
       <div>
-        <Subscription />
+        Subscribe to our newsletter
+        <Link to="/subscribe">
+          <button>SUBSCRIBE</button>
+        </Link>
       </div>
-      <div>Opening hours and address card</div>
-      <div>Links to other pages</div>
+      <div>
+        <GeneralInfo />
+      </div>
+      <div>
+        <br />
+        Links to other pages
+        <br />
+      </div>
       <div>
         <QRcode />
       </div>
       <div>
         <Awards />
       </div>
-      <div>Link to contact us page</div>
-      <div>Links to optional pages</div>
+      <div>
+        <Link to="/contact-us">Contact Us</Link>
+      </div>
+      <div>
+        <a href="https://www.tech.gov.sg/report_vulnerability">
+          Report Vulnerability
+        </a>
+        <br />
+        <Link to="/privacy">Privacy Statement</Link>
+        <br />
+        <Link to="/terms-of-use">Terms of Use</Link>
+        <br />
+      </div>
     </footer>
   );
 }

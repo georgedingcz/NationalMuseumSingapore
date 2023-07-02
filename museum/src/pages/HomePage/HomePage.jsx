@@ -1,9 +1,8 @@
 import MuseumCard from "../../components/Museum/MuseumCard";
-import ItineraryButton from "../../components/Itinerary/ItineraryButton";
-import MapButton from "../../components/MapButton/MapButton";
 import TicketingButton from "../../components/TicketingButton/TicketingButton";
 import "../HomePage/HomePage.css";
 import Card from "../../components/Card/Card";
+import { Link } from "react-router-dom";
 
 export default function HomePage() {
   const card = {
@@ -24,13 +23,17 @@ export default function HomePage() {
       <div className="section-container">
         <h2>Happening Now</h2>
         <Card card={card} />
-        <ItineraryButton />
+        <Link to="/itinerary">
+          <button>ITINERARY PLANNER</button>
+        </Link>
       </div>
 
       <div className="section-container">
         <h2>Exhibitions</h2>
         <Card card={card} />
-        <MapButton />
+        <Link to="/map">
+          <button>MUSEUM MAP</button>
+        </Link>
       </div>
     </div>
   );
