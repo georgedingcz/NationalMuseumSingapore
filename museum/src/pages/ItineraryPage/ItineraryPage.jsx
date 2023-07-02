@@ -14,7 +14,7 @@ export default function ItineraryPage() {
     type : ["For All", "Adults", "Children", "Families", "Seniors", "Special Needs", "Students", "Teachers"],
 }
   return (
-    <>
+    <div className="page-container">
       <div>
         <ItineraryPicture />
       </div>
@@ -37,6 +37,6 @@ export default function ItineraryPage() {
       <div>
         <VisitorType />
       </div> */}
-    </>
+    </div>
   );
 }

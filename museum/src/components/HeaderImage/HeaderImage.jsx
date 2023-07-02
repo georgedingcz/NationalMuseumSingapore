@@ -1,5 +1,7 @@
+import "./headerImage.css";
+
 export default function HeaderImage(props) {
   return (
-        <div style={{backgroundImage: `url(${props.src})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}}></div>
+    <img className="header-image" src={props.src} alt="exhibitions-header" />
   );
 }

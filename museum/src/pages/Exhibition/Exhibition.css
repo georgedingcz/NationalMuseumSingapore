@@ -1,16 +1,28 @@
 .header-container {
     width: 100%;
+    height:max-content
 }
 
-.header-container div {
+.header-container {
     width: 100%;
-    height: 400px;
+    height: 250px;
+    display: flex;
+    align-self: center;
+    justify-content: center;
 }
+
+.header-container img {
+    object-fit: cover;
+    width: 100%;
+}
+
+
 .row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 990px;
+    width: 100%;
+    justify-content: center;
 }
 
 .link {

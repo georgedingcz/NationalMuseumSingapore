@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { signUp } from "../../utilities/users-service";
+import { Navigate } from "react-router-dom";
 
 export default class SignUpForm extends Component {
   state = {
@@ -8,6 +9,7 @@ export default class SignUpForm extends Component {
     password: "",
     confirm: "",
     error: "",
+    signUpSuccess: false,
   };
 
   // The object passed to setState is merged with the current state object
@@ -32,7 +34,8 @@ export default class SignUpForm extends Component {
       // payload of the JSON Web Token (JWT)
       const user = await signUp(formData);
       // Baby step!
-      this.props.setUser(user)
+      this.props.setUser(user);
+      this.setState({ signUpSuccess: true });
     } catch {
       // An error occurred
       this.setState({ error: "Sign Up Failed - Try Again" });
@@ -41,6 +44,9 @@ export default class SignUpForm extends Component {
 
   render() {
     const disable = this.state.password !== this.state.confirm;
+    if (this.state.signUpSuccess) {
+      return <Navigate to="/itinerary" />;
+    }
     return (
       <div>
         <div className="form-container">

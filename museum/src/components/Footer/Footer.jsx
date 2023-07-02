@@ -5,8 +5,7 @@ import "./Footer.css";
 
 export default function Footer() {
   return (
-    <footer className="page-container">
-      Footer
+    <footer className="footer">
       <div>
         <a href="https://www.facebook.com/National.Museum.of.Singapore/">
           <img
