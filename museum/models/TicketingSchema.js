@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Exhibition = require("./ExhibitionSchema");
+const Exhibition = require("../src/models/exhibition");
 const { Schema, model } = mongoose;
 
 const TicketingSchema = new Schema({
