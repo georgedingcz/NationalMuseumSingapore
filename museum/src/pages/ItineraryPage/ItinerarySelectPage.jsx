@@ -13,7 +13,7 @@ export default function ItinerarySelectPage() {
   return (
     <>
       Suggested Itinerary
-      <div>
+      <div className="page-container">
         <div>
           <Card card={card} />
           <input type="checkbox" id="card1" name="cardCheckbox" value="1" />
@@ -38,7 +38,7 @@ export default function ItinerarySelectPage() {
       <div>
         <button>Add to my itinerary</button>
       </div>
-      <br/>
+      <br />
       <Link to="/itinerary">
         <button>Return to my itinerary</button>
       </Link>
