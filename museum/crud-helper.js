@@ -11,3 +11,7 @@ const User = require('./models/user');
 // Local variables will come in handy for holding retrieved documents
 let user, item, category, order;
 let users, items, categories, orders;
+
+//const Exhibition = require('./models/exhibition');
+//let exhibitions = await Exhibition.find({});
+//console.log(exhibitions);
