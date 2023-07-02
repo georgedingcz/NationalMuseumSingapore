@@ -23,7 +23,7 @@ export default function ItineraryPage() {
         <Dropbox dropbox={dropbox}/>
       </div>
       <div>
-        <Link to="/itinerary/select">SHOW MY ITINERARY</Link>
+        <Link to="/itinerary/select">SELECT MY ITINERARY</Link>
       </div>
       {/* <div>
         <DateOfVisit />

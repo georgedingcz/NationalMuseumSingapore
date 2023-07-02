@@ -6,11 +6,10 @@ const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6; // 6 is a reasonable value
 
-const TicketingSchema = new Schema({
+const ItinerarySchema = new Schema({
   id: { type: Number, required: true, unique: true },
   exhibitions: [Exhibition],
-  price: { type: Number, required: true, max: 9999 },
-  purchase_date: Date,
+  dateOfVisit: Date,
 });
 
 const userSchema = new Schema(
@@ -29,7 +28,7 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
-    ticket: [TicketingSchema],
+    itinerary: [ItinerarySchema],
   },
   {
     timestamps: true,
