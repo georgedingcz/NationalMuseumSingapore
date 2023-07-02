@@ -55,4 +55,3 @@ function getCurrentTime() {
 }
 
 module.exports = model("Exhibition", exhibitionSchema);
-module.exports = exhibitionSchema;
