@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 
-export default function ItineraryPage() {
+export default function ItineraryPage({ user }) {
   const [date, setDate] = useState("");
   // const [duration, setDuration] = useState("");
   // const [exhibitionGroup, setExhibitionGroup] = useState("");
@@ -134,7 +134,9 @@ export default function ItineraryPage() {
           );
         })}
       </div>
-
+      {checkedExhibition.map((exhibit, index) => (
+        <div key={index}>{exhibit}</div>
+      ))}
       <div>
         <Link to="/itinerary/select">
           <button>SELECT MY ITINERARY</button>
