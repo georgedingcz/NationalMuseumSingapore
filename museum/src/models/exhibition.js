@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-const { Schema, model } = mongoose;
+const Schema = mongoose.Schema;
 
 const exhibitionSchema = new Schema({
   id: { type: String, required: true, unique: true },
@@ -69,3 +68,37 @@ function getCurrentTime() {
 }
 
 module.exports = model("Exhibition", exhibitionSchema);
+    time: {
+        start_time: { type: String },
+        end_time: { type: String },
+        permanent: { type: Boolean, required: true },
+    },
+    additional_notes: {
+        location: { type: String },
+        time: { type: String },
+        admission: { type: String }
+    },
+    price: {
+        SG_PR: {
+            adults: { type: Number, min: 0 },
+            children: { type: Number, min: 0 },
+            seniors: { type: Number, min: 0 },
+            special_needs: { type: Number, min: 0 },
+            students: { type: Number, min: 0 },
+            teachers: { type: Number, min: 0 }
+        },
+        Tourist_FR: {
+            adults: { type: Number, min: 0 },
+            children: { type: Number, min: 0 },
+            seniors: { type: Number, min: 0 },
+            special_needs: { type: Number, min: 0 },
+            students: { type: Number, min: 0 },
+            teachers: { type: Number, min: 0 }
+        }
+    },
+    accessibility: { type: String, enum: ['FOR ALL', 'ADULTS', 'CHILDREN', 'FAMILIES', 'SENIORS', 'SPECIAL NEEDS', 'STUDENTS', 'TEACHERS'], default: "FOR ALL", required: true }
+}, {
+    timestamps: true
+});
+
+module.exports = mongoose.model('Exhibition', exhibitionSchema);
