@@ -4,11 +4,13 @@ import Card from "../../components/Card/Card";
 
 export default function ItineraryPage() {
   const [date, setDate] = useState("");
-  const [duration, setDuration] = useState("");
-  const [exhibitionGroup, setExhibitionGroup] = useState("");
+  // const [duration, setDuration] = useState("");
+  // const [exhibitionGroup, setExhibitionGroup] = useState("");
   const [accessibility, setAccessibility] = useState("");
 
   const [filteredExhibition, setFilteredExhibition] = useState();
+
+  const [checkedExhibition, setCheckedExhibition] = useState([]);
 
   useEffect(() => {
     const fetchExhibitions = async () => {
@@ -25,23 +27,21 @@ export default function ItineraryPage() {
 
   const handleDateChange = (evt) => {
     setDate(evt.target.value);
-    console.log(date);
   };
-  const handleDurationChange = (evt) => {
-    setDuration(evt.target.value);
-    console.log(duration);
-  };
-  const handleExhibitionChange = (evt) => {
-    setExhibitionGroup(evt.target.value);
-    console.log(exhibitionGroup);
-  };
+  // const handleDurationChange = (evt) => {
+  //   setDuration(evt.target.value);
+  // };
+  // const handleExhibitionChange = (evt) => {
+  //   setExhibitionGroup(evt.target.value);
+  // };
   const handleTypeChange = (evt) => {
     setAccessibility(evt.target.value);
-    console.log(accessibility);
   };
 
-  const handleCheckboxChange = () => {
-    console.log("ok");
+  const handleCheckboxChange = (title) => {
+    const newCheckedExhibition = [...checkedExhibition, title];
+    setCheckedExhibition(newCheckedExhibition);
+    console.log(checkedExhibition);
   };
 
   return (
@@ -123,16 +123,12 @@ export default function ItineraryPage() {
           return (
             <div key={index}>
               <Card card={card} />
-              {/* {date} <br />
-              Exhibition start date {card.date.start_date}
-              <br />
-              Exhibition end date {card.date.end_date} */}
               <input
                 type="checkbox"
                 id={index}
                 name="cardCheckbox"
                 value={card.title}
-                onChange={handleCheckboxChange}
+                onChange={() => handleCheckboxChange(card.title)}
               />
             </div>
           );
