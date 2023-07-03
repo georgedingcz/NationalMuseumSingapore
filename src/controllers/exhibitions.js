@@ -33,8 +33,20 @@ const Exhibition = require("../models/exhibition");
       }
   };
 
+  const filtered = async (req,res)=>{
+    try {
+      const exhibitions = await Exhibition.find();
+      res.json(exhibitions);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Server Error' });
+    }
+    console.log("test")
+  }
+
 module.exports = {
     create,
     getAllExhibitions,
     listOne,
+    filtered,
 };
