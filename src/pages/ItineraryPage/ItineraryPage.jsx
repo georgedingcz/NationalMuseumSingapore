@@ -3,10 +3,10 @@ import { useEffect, useState } from "react";
 import Card from "../../components/Card/Card";
 
 export default function ItineraryPage() {
-  const [date, setDate] = useState();
-  const [duration, setDuration] = useState();
-  const [exhibitionGroup, setExhibitionGroup] = useState();
-  const [visitorType, setVisitorType] = useState();
+  const [date, setDate] = useState("");
+  const [duration, setDuration] = useState("");
+  const [exhibitionGroup, setExhibitionGroup] = useState("");
+  const [accessibility, setAccessibility] = useState("");
 
   const [filteredExhibition, setFilteredExhibition] = useState();
 
@@ -36,8 +36,8 @@ export default function ItineraryPage() {
     console.log(exhibitionGroup);
   };
   const handleTypeChange = (evt) => {
-    setVisitorType(evt.target.value);
-    console.log(visitorType);
+    setAccessibility(evt.target.value);
+    console.log(accessibility);
   };
 
   const handleCheckboxChange = () => {
@@ -65,13 +65,13 @@ export default function ItineraryPage() {
         />
       </div>
 
-      <div>
+      {/* <div>
         <select
           name="duration"
           id="duration-select"
           onChange={handleDurationChange}
         >
-          <option value="">Duration of visit</option>
+          <option value={duration}>Duration of visit</option>
           <option value="2hours">2 hours</option>
           <option value="3hours">3 hours</option>
           <option value="5hours">5 hours</option>
@@ -85,13 +85,13 @@ export default function ItineraryPage() {
           id="exhibitions-select"
           onChange={handleExhibitionChange}
         >
-          <option value="">Exhibitions</option>
-          <option value="2hours">2 hours</option>
-          <option value="3hours">3 hours</option>
-          <option value="5hours">5 hours</option>
-          <option value="fullDay">Full Day</option>
+          <option value={exhibitionGroup}>Exhibitions</option>
+          <option value="permanent">Permanent Galleries</option>
+          <option value="special">Special Exhibitions</option>
+          <option value="digital">Digital Exhibitions</option>
+          <option value="fullDay">All Exhibitions</option>
         </select>
-      </div>
+      </div> */}
 
       <div>
         <select
@@ -99,21 +99,25 @@ export default function ItineraryPage() {
           id="types-select"
           onChange={handleTypeChange}
         >
-          <option value="">Visitor Types</option>
-          <option value="forAll">For All</option>
-          <option value="adults">Adults</option>
-          <option value="children">Children</option>
-          <option value="families">Families</option>
-          <option value="seniors">Seniors</option>
-          <option value="specialNeeds">Special Needs</option>
-          <option value="students">Students</option>
-          <option value="teachers">Teachers</option>
+          <option value={accessibility}>Visitor Types</option>
+          <option value="FOR ALL">For All</option>
+          <option value="ADULTS">Adults</option>
+          <option value="CHILDREN">Children</option>
+          <option value="FAMILIES">Families</option>
+          <option value="SENIORS">Seniors</option>
+          <option value="SPECIAL NEEDS">Special Needs</option>
+          <option value="STUDENTS">Students</option>
+          <option value="TEACHERS">Teachers</option>
         </select>
       </div>
 
       <div className="row">
         {filteredExhibition?.map((card, index) => {
           if (date <= card.date.start_date || date >= card.date.end_date) {
+            return null;
+          }
+
+          if (accessibility !== card.accessibility) {
             return null;
           }
           return (
