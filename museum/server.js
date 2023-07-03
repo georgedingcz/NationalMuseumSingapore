@@ -8,6 +8,8 @@ require('dotenv').config();
 require('./config/database');
 
 var exhibitionsRouter = require('./src/routes/exhibitions');
+var itinerariesRouter = require('./src/routes/itineraries');
+var ticketsRouter = require('./src/routes/tickets')
 
 const app = express();
 
@@ -33,6 +35,8 @@ app.use('/api/users', require('./routes/api/users'));
 //});
 
 app.use('/exhibition', exhibitionsRouter);
+app.use('/ticket', ticketsRouter);
+app.use('/itinerary', itinerariesRouter);
 
 // Configure to use port 3001 instead of 3000 during
 // development to avoid collision with React's dev server
