@@ -5,27 +5,16 @@ import CardDesc from "./CardDesc";
 import CardAdditionalNotes from "./CardAdditionalNotes";
 import "./card.css";
 
-export default function Card({ card, renderActions }) {
-  if (!card) {
-    return null;
-  }
-
-  const { image, date, title, content, additional_notes } = card;
-
+export default function Card(props) {
   return (
-    <div className="card-container">
-      <CardImage image={image} />
-      {date && <CardDate date={date} />}
-      {title && <CardTitle title={title} />}
-      {content && <CardDesc content={content} />}
-      {additional_notes && (
-        <CardAdditionalNotes
-          key={card._id}
-          additional_notes={additional_notes}
-        />
-      )}
-
-      {renderActions && renderActions(card)}
-    </div>
+    <>
+      <div className="card-container">
+        <CardImage image={props.card.image} />
+        <CardDate date={props.card.date} />
+        <CardTitle title={props.card.title} />
+        <CardDesc content={props.card.content} />
+        <CardAdditionalNotes additional_notes={props.card.additional_notes} />
+      </div>
+    </>
   );
 }

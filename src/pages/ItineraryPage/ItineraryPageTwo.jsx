@@ -39,15 +39,17 @@ export default function ItineraryPageTwo({ user }) {
     try {
       const userId = user._id;
       console.log("User ID:", userId);
-      const exhibitions = selectedCard.map((card) => ({
-        exhibitionId: card._id,
-        dateOfVisit: new Date(2023, 6, 5),
+      const itinerary = selectedCard.map((card) => ({
+        selectedCardId: card._id,
+        selectedCardTitle: card.title || "Untitled",
+        dateOfVisit: new Date(), // Assign the current date as the date of visit
       }));
-      console.log("Exhibitions:", exhibitions);
-      const updatedUser = await updateUser(userId, {
+      console.log("Itinerary:", itinerary);
+      const requestBody = {
         id: userId,
-        itinerary: exhibitions,
-      });
+        itinerary,
+      };
+      const updatedUser = await updateUser(userId, requestBody);
       console.log(user);
       console.log("User updated:", updatedUser);
     } catch (error) {
@@ -57,18 +59,9 @@ export default function ItineraryPageTwo({ user }) {
     console.log(user);
   };
 
-  const renderCheckbox = (props) => (
-    <input
-      type="checkbox"
-      checked={selectedCard.some((card) => card._id === props.card._id)}
-      onChange={() => handleCheckboxChange(props.card)}
-    />
-  );
-
   return (
     <div className="page-container">
       <h1>Welcome {user.name}!</h1>
-      <p>This is a redo</p>
 
       <section className="section-container">
         <img
@@ -95,15 +88,18 @@ export default function ItineraryPageTwo({ user }) {
         {isLoading ? (
           <div>Loading...</div>
         ) : (
-          <section className="section-container">
-            {exhibitions.map((exhibition) => (
-              <Card
-                key={exhibition._id}
-                card={exhibition}
-                renderActions={renderCheckbox}
+          exhibitions.map((exhibition) => (
+            <div key={exhibition._id}>
+              <Card card={exhibition} />
+              <input
+                type="checkbox"
+                checked={selectedCard.some(
+                  (card) => card._id === exhibition._id
+                )}
+                onChange={() => handleCheckboxChange(exhibition)}
               />
-            ))}
-          </section>
+            </div>
+          ))
         )}
       </section>
 
