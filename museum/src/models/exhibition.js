@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-
-const { Schema, model } = mongoose;
+const Schema = mongoose.Schema;
 
 const exhibitionSchema = new Schema({
     id: { type: String, required: true, unique: true },
@@ -45,13 +44,8 @@ const exhibitionSchema = new Schema({
         }
     },
     accessibility: { type: String, enum: ['FOR ALL', 'ADULTS', 'CHILDREN', 'FAMILIES', 'SENIORS', 'SPECIAL NEEDS', 'STUDENTS', 'TEACHERS'], default: "FOR ALL", required: true }
+}, {
+    timestamps: true
 });
 
-function getCurrentTime() {
-    const now = new Date();
-    const hours = now.getHours().toString().padStart(2, '0');
-    const minutes = now.getMinutes().toString().padStart(2, '0');
-    return `${hours}:${minutes}`;
-}
-
-module.exports = model("Exhibition", exhibitionSchema);
+module.exports = mongoose.model('Exhibition', exhibitionSchema);

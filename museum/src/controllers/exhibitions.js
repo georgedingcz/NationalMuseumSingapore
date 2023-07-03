@@ -13,13 +13,14 @@ const Exhibition = require("../models/exhibition");
     }
   }
 
-  const listAll = async (req, res) => {
+  const getAllExhibitions = async (req, res) => {
     try {
-        const exhibitions = await Exhibition.find()
-        res.status(200).json(exhibitions)
-    } catch (err) {
-        res.status(500).json({err})
-    }
+        const exhibitions = await Exhibition.find();
+        res.json(exhibitions);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Server Error' });
+      }
 }
 
   const listOne = async (req, res) => {
@@ -34,6 +35,6 @@ const Exhibition = require("../models/exhibition");
 
 module.exports = {
     create,
-    listAll,
+    getAllExhibitions,
     listOne,
 };
