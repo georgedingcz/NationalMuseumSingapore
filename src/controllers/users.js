@@ -43,27 +43,31 @@ const patch = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    // Update the user's itinerary based on the provided itinerary data
-    for (const item of itinerary) {
-      const { selectedCardId, selectedCardTitle } = item;
-      const itineraryElement = user.itinerary.find(
-        (element) => element.selectedCardId.equals(selectedCardId)
-      );
-      if (itineraryElement) {
-        itineraryElement.selectedCardTitle = selectedCardTitle;
-      } else {
-        user.itinerary.push({ selectedCardId, selectedCardTitle });
+    const updateOperations = itinerary.map(item => ({
+      updateOne: {
+        filter: { _id: id },
+        update: {
+          $addToSet: {
+            itinerary: {
+              selectedCardId: item.selectedCardId,
+              selectedCardTitle: item.selectedCardTitle
+            }
+          }
+        }
       }
-    }
+    }));
 
-    // Save the updated user
-    const updatedUser = await user.save();
+    await User.bulkWrite(updateOperations);
+
+    const updatedUser = await User.findById(id);
 
     res.status(200).json(updatedUser);
   } catch (error) {
     res.status(500).json({ error });
   }
 };
+
+
 
 
 
