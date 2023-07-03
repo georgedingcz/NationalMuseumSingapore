@@ -1,9 +1,9 @@
-export default function CardMoreInfo(props) {
+export default function CardAdditionalNotes(props) {
   return (
     <>
       <div className="moreinfo">
         <ul>
-          {props.info.map((info, index) => (
+          {props.additional_notes.map((info, index) => (
             <li key={index}>{info}</li>
           ))}
         </ul>

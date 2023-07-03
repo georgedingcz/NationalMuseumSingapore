@@ -22,7 +22,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Happening Now</h2>
-        <Card card={card} />
+        {/*<Card card={card} />*/}
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
         </Link>
@@ -30,7 +30,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Exhibitions</h2>
-        <Card card={card} />
+        {/*<Card card={card} />*/}
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>
