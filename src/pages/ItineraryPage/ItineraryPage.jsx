@@ -60,7 +60,7 @@ export default function ItineraryPage() {
           type="date"
           id="start"
           name="trip-start"
-          value="2023-07-05"
+          value={date}
           onChange={handleDateChange}
         />
       </div>
@@ -119,10 +119,10 @@ export default function ItineraryPage() {
           return (
             <div key={index}>
               <Card card={card} />
-              {date} <br />
+              {/* {date} <br />
               Exhibition start date {card.date.start_date}
               <br />
-              Exhibition end date {card.date.end_date}
+              Exhibition end date {card.date.end_date} */}
               <input
                 type="checkbox"
                 id={index}
