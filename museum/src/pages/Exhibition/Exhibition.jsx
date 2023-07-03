@@ -1,10 +1,28 @@
 import "../../pages/Exhibition/Exhibition.css";
+import { Link } from "react-router-dom";
 import Card from "../../components/Card/Card";
 import HeaderImage from "../../components/HeaderImage/HeaderImage";
 import Dropbox from "../../components/Dropbox/Dropbox";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
 
 export default function Exhibition() {
+
+  const [exhibitions, setExhibitions] = useState([]);
+
+  useEffect(() => {
+    const fetchExhibitions = async () => {
+      try {
+        const response = await fetch('/exhibition');
+        const data = await response.json();
+        setExhibitions(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchExhibitions();
+  }, []);
+
   const card = {
     id: "aonw",
     img: "https://picsum.photos/id/237/300/200",
@@ -33,6 +51,10 @@ export default function Exhibition() {
 
   return (
     <>
+      {exhibitions.map((exhibition) => (
+        console.log(exhibition.title)
+      ))}
+
       <div className="page-container">
         <div className="header-container">
           <HeaderImage src={src} />
