@@ -13,12 +13,10 @@ const exhibitionSchema = new Schema({
     date: {
         start_date: { type: String },
         end_date: { type: String },
-        permanent: { type: Boolean, required: true },
     },
     time: {
         start_time: { type: String },
         end_time: { type: String },
-        permanent: { type: Boolean, required: true },
     },
     additional_notes: {
         location: { type: String },
