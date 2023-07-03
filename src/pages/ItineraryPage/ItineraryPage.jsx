@@ -4,22 +4,23 @@ import Card from "../../components/Card/Card";
 
 export default function ItineraryPage({ user }) {
   const [date, setDate] = useState("");
-  // const [duration, setDuration] = useState("");
-  // const [exhibitionGroup, setExhibitionGroup] = useState("");
   const [accessibility, setAccessibility] = useState("");
-
-  const [filteredExhibition, setFilteredExhibition] = useState();
-
+  const [filteredExhibition, setFilteredExhibition] = useState([]);
   const [checkedExhibition, setCheckedExhibition] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchExhibitions = async () => {
       try {
         const response = await fetch("/exhibition");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         setFilteredExhibition(data);
+        console.log("Received data:", data);
       } catch (error) {
-        console.error(error);
+        setError(`Fetch failed: ${error.message}`);
       }
     };
     fetchExhibitions();
@@ -28,12 +29,7 @@ export default function ItineraryPage({ user }) {
   const handleDateChange = (evt) => {
     setDate(evt.target.value);
   };
-  // const handleDurationChange = (evt) => {
-  //   setDuration(evt.target.value);
-  // };
-  // const handleExhibitionChange = (evt) => {
-  //   setExhibitionGroup(evt.target.value);
-  // };
+
   const handleTypeChange = (evt) => {
     setAccessibility(evt.target.value);
   };
@@ -54,7 +50,7 @@ export default function ItineraryPage({ user }) {
       </div>
 
       <h1>Itinerary Planner</h1>
-
+      <div>{user && <h2>Welcome, {user.name}!</h2>}</div>
       <div>
         <input
           type="date"
@@ -64,34 +60,6 @@ export default function ItineraryPage({ user }) {
           onChange={handleDateChange}
         />
       </div>
-
-      {/* <div>
-        <select
-          name="duration"
-          id="duration-select"
-          onChange={handleDurationChange}
-        >
-          <option value={duration}>Duration of visit</option>
-          <option value="2hours">2 hours</option>
-          <option value="3hours">3 hours</option>
-          <option value="5hours">5 hours</option>
-          <option value="fullDay">Full Day</option>
-        </select>
-      </div>
-
-      <div>
-        <select
-          name="exhibitions"
-          id="exhibitions-select"
-          onChange={handleExhibitionChange}
-        >
-          <option value={exhibitionGroup}>Exhibitions</option>
-          <option value="permanent">Permanent Galleries</option>
-          <option value="special">Special Exhibitions</option>
-          <option value="digital">Digital Exhibitions</option>
-          <option value="fullDay">All Exhibitions</option>
-        </select>
-      </div> */}
 
       <div>
         <select
@@ -112,7 +80,8 @@ export default function ItineraryPage({ user }) {
       </div>
 
       <div className="row">
-        {filteredExhibition?.map((card, index) => {
+        {filteredExhibition.map((card, index) => {
+          console.log("Card:", card);
           if (date <= card.date.start_date || date >= card.date.end_date) {
             return null;
           }
@@ -122,7 +91,13 @@ export default function ItineraryPage({ user }) {
           }
           return (
             <div key={index}>
-              <Card card={card} />
+              <Card
+                image={card.image}
+                date={card.date}
+                title={card.title}
+                content={card.content}
+                additional_notes={card.additional_notes}
+              />
               <input
                 type="checkbox"
                 id={index}
@@ -145,5 +120,3 @@ export default function ItineraryPage({ user }) {
     </div>
   );
 }
-
-/* <Dropbox dropbox={dropbox} /> */
