@@ -7,19 +7,22 @@ export default function ContactUs() {
       />
 
       <h1>Contact Us</h1>
-
+      <br />
       <div>
         <h3>Phone Number</h3>
         +65 6332 3659
       </div>
+      <br />
       <div>
         <h3>Address</h3>
         93 Stamford Rd, Singapore 178897
       </div>
+      <br />
       <div>
         <h3>Opening Hours</h3>
         10am - 6.30pm (daily)
       </div>
+      <br />
       <div>
         <h3>Email</h3>
         nhb_nm_corpcomms@nhb.gov.sg
