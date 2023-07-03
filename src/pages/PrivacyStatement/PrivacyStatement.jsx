@@ -1,6 +1,10 @@
 export default function PrivacyStatement() {
   return (
-    <>
+    <div className="page-container">
+      <img
+        src="https://www.nhb.gov.sg/nationalmuseum/-/media/nms2017/image/innerpagebanner/detail-page-banner.jpg?w=1440"
+        alt="background"
+      />
       <h1>Privacy Statement</h1>
       <h2>Privacy Statement</h2>
       <p>This is a Government of Singapore digital service.</p>
@@ -140,6 +144,6 @@ export default function PrivacyStatement() {
           us in the past.
         </li>
       </ul>
-    </>
+    </div>
   );
 }

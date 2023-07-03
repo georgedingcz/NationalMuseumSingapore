@@ -5,7 +5,7 @@ export default function GeneralInfo() {
     <div>
       <>
         <img
-          src="https://www.iconpacks.net/icons/1/free-location-icon-983-thumb.png"
+          src="https://www.svgrepo.com/download/1276/map-pin.svg"
           alt="location icon"
           className="footerIcon"
         />
@@ -14,7 +14,7 @@ export default function GeneralInfo() {
       </>
       <>
         <img
-          src="https://png.pngtree.com/png-clipart/20190516/original/pngtree-vector-clock-icon-png-image_3785539.jpg"
+          src="https://www.svgrepo.com/download/38630/clock.svg"
           alt="time icon"
           className="footerIcon"
         />
@@ -23,7 +23,7 @@ export default function GeneralInfo() {
       </>
       <>
         <img
-          src="https://www.citypng.com/public/uploads/preview/outline-black-ticket-icon-png-11663777631weiruktfee.png?v=2023062813"
+          src="https://www.svgrepo.com/download/144359/tickets.svg"
           alt="ticket icon"
           className="footerIcon"
         />
