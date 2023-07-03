@@ -18,6 +18,7 @@ import { Navigate } from "react-router-dom";
 import ContactUs from "../ContactUs/ContactUs";
 import PrivacyStatement from "../PrivacyStatement/PrivacyStatement";
 import TermsOfUse from "../TermsOfUse/TermsOfUse";
+import TourPage from "../Tour/TourPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -27,6 +28,7 @@ export default function App() {
       <>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/tours" element={<TourPage />} />
           <Route path="/map" element={<MapPage />} />
           <Route path="/exhibition" element={<Exhibition />} />
           <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
