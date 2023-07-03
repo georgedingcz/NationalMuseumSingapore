@@ -49,8 +49,8 @@ const patch = async (req, res) => {
         update: {
           $addToSet: {
             itinerary: {
-              selectedCardId: item.selectedCardId,
-              selectedCardTitle: item.selectedCardTitle
+              exhibitionId: item.selectedCardId,
+              exhibitionName: item.selectedCardTitle
             }
           }
         }

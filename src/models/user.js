@@ -9,7 +9,7 @@ const SALT_ROUNDS = 6; // 6 is a reasonable value
 const itinerarySchema = new Schema({
   exhibition: { type: Schema.Types.ObjectId, ref: "Exhibition" },
   dateOfVisit: { type: Date },
-  selectedCardTitle: { type: String },
+  exhibitionName: { type: String },
 });
 
 const userSchema = new Schema(
