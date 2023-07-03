@@ -1,3 +1,3 @@
 export default function Tour() {
-  return <h1>This is the tour coomponent</h1>;
+  return <h1>This is the tour component</h1>;
 }
