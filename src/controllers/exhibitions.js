@@ -21,7 +21,7 @@ const Exhibition = require("../models/exhibition");
         console.error(error);
         res.status(500).json({ message: 'Server Error' });
       }
-}
+  }
 
   const listOne = async (req, res) => {
       const {id} = req.params;
