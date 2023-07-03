@@ -6,7 +6,7 @@ const bcrypt = require("bcrypt");
 
 const SALT_ROUNDS = 6; // 6 is a reasonable value
 
-const ItinerarySchema = new Schema({
+const itinerarySchema = new Schema({
   id: { type: Number, required: true, unique: true },
   dateOfVisit: Date,
 });
@@ -27,7 +27,7 @@ const userSchema = new Schema(
       minLength: 3,
       required: true,
     },
-    itinerary: [ItinerarySchema],
+    itinerary: [itinerarySchema],
   },
   {
     timestamps: true,
