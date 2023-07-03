@@ -19,9 +19,13 @@ export default function Exhibition() {
       "Students",
       "Teachers",
     ],
-    status: ["Current and Upcoming", "Past"],
-    date: ["Current and Upcoming", "Past"],
+    status: ["Current", "Upcoming", "Past"],
+    date: "",
   };
+
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   return (
     <>
@@ -31,8 +35,9 @@ export default function Exhibition() {
         </div>
 
         <h1>Our Exhibitions</h1>
-
-        <Dropbox dropbox={dropbox} />
+        <form onSubmit={handleSubmit}>
+          <Dropbox dropbox={dropbox} />
+        </form>
         <CardCollection />
       </div>
     </>
