@@ -11,8 +11,8 @@ const exhibitionSchema = new Schema({
         links: { type: Array }
     },
     date: {
-        start_date: { type: String },
-        end_date: { type: String },
+        start_date: { type: Date },
+        end_date: { type: Date },
     },
     time: {
         start_time: { type: String },
