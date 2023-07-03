@@ -3,8 +3,8 @@ export default function CardAdditionalNotes(props) {
     <>
       <div className="moreinfo">
         <ul>
-          {props.additional_notes.map((info, index) => (
-            <li key={index}>{info}</li>
+          {Object.values(props.additional_notes).map((info) => (
+            <li>{info}</li>
           ))}
         </ul>
       </div>

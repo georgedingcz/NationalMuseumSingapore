@@ -13,7 +13,7 @@ export default function Card(props) {
         <CardDate date={props.card.date} />
         <CardTitle title={props.card.title} />
         <CardDesc content={props.card.content} />
-        {/*<CardAdditionalNotes additional_notes={props.card.additional_notes} />*/}
+        <CardAdditionalNotes additional_notes={props.card.additional_notes} />
       </div>
     </>
   );
