@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 export default function TermsOfUse() {
   return (
-    <>
+    <div className="page-container">
+      <img src="https://www.nhb.gov.sg/nationalmuseum/-/media/nms2017/image/innerpagebanner/detail-page-banner.jpg?w=1440" alt="background"/>
       <h1>Terms of Use</h1>
       <h2>Terms of Use</h2>
       <p>
@@ -128,11 +129,8 @@ export default function TermsOfUse() {
       <p>
         17. Hyper-linking to an internal page of this Website: You must make{" "}
         <a href="mailto:NHB_Feedback@nhb.gov.sg" rel="noopener noreferrer">
-          a specific request
-        </a>{" "}
-        <a href="mailto:NHB_Feedback@nhb.gov.sg" rel="noopener noreferrer">
-          in writing
-        </a>{" "}
+          a specific request in writing{" "}
+        </a>
         addressed to: NHB_Feedback@nhb.gov.sg for permission from NHB prior to
         hyper-linking to, or framing this Website or any of the Contents, or
         engaging in similar activities. NHB reserves the right to impose
@@ -171,6 +169,6 @@ export default function TermsOfUse() {
         22. These Terms of Use shall be governed and construed in accordance
         with the laws of the Republic of Singapore.
       </p>
-    </>
+    </div>
   );
 }
