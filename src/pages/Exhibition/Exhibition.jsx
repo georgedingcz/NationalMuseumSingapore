@@ -8,33 +8,20 @@ export default function Exhibition() {
 
   const [exhibitions, setExhibitions] = useState([]);
   
-  const [accessibility, setAccessibility] = useState("");
+  const [accessibility, setAccessibility] = useState("For%20All");
   const [status, setStatus] = useState("");
 
-  const handleAccessibilityChange = (e) => {
+  const handleAccessibility = (e) => {
     setAccessibility(e);
   };
 
-  const handleStatusChange = (e) => {
+  const handleStatus = (e) => {
     setStatus(e);
   };
 
+  const dropbox_accessibility = ["For All","Adults","Children","Families","Seniors","Special Needs","Students","Teachers"];
+  const dropbox_status = ["Current", "Upcoming", "Past"];
   const src = "https://picsum.photos/id/237/300/200";
-
-  const dropbox = {
-    type: [
-      "For All",
-      "Adults",
-      "Children",
-      "Families",
-      "Seniors",
-      "Special Needs",
-      "Students",
-      "Teachers",
-    ],
-    status: ["Current", "Upcoming", "Past"],
-    date: "",
-  };
 
   useEffect(() => {
     const fetchExhibitions = async () => {
@@ -73,10 +60,39 @@ export default function Exhibition() {
 
         <h1>Our Exhibitions</h1>
         <form onSubmit={handleSubmit}>
-          <Dropbox dropbox={dropbox} accessibility={accessibility} getAccess = {handleAccessibilityChange} status = {status} getStatus = {handleStatusChange} />
+          {/*<Dropbox dropbox={dropbox_accessibility} handleAccessibility={handleAccessibility} handleStatus={handleStatus} />*/}
+          <p>{accessibility}</p>
+          <p>{status}</p>
         </form>
         <CardCollection data = {exhibitions} />
       </div>
     </>
   );
 }
+
+
+
+/*
+
+import React, { useState } from 'react';
+
+function ChildComponent({ childState, updateParentState }) {
+  const [childValue, setChildValue] = useState('');
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setChildValue(newValue);
+    updateParentState(newValue); // Call the callback function to update the parent's state
+  };
+
+  return (
+    <div>
+      <input type="text" value={childValue} onChange={handleChange} />
+      <p>Value in child: {childState}</p>
+    </div>
+  );
+}
+
+export default ChildComponent;
+
+*/
