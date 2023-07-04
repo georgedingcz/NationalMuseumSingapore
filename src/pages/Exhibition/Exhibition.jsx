@@ -1,27 +1,16 @@
 import "../../pages/Exhibition/Exhibition.css";
 import HeaderImage from "../../components/HeaderImage/HeaderImage";
-import Dropbox from "../../components/Dropbox/Dropbox";
 import React, { useEffect, useState } from 'react';
 import CardCollection from "../../components/Card/CardCollection";
 
 export default function Exhibition() {
 
   const [exhibitions, setExhibitions] = useState([]);
-  
-  const [accessibility, setAccessibility] = useState("For%20All");
-  const [status, setStatus] = useState("");
+  const [accessURL, setAccessURL] = useState("For All");
+  const [statusURL, setStatusURL] = useState("Current");
 
-  const handleAccessibility = (e) => {
-    setAccessibility(e);
-  };
-
-  const handleStatus = (e) => {
-    setStatus(e);
-  };
-
-  const dropbox_accessibility = ["For All","Adults","Children","Families","Seniors","Special Needs","Students","Teachers"];
-  const dropbox_status = ["Current", "Upcoming", "Past"];
-  const src = "https://picsum.photos/id/237/300/200";
+  const dropdown_accessibility = ["For All","Adults","Children","Families","Seniors","Special Needs","Students","Teachers"];
+  const dropdown_status = ["Current", "Upcoming", "Past"];
 
   useEffect(() => {
     const fetchExhibitions = async () => {
@@ -38,7 +27,8 @@ export default function Exhibition() {
 
     const fetchQuery = async () => {
       try {
-        const response = await fetch('/exhibition/search?accessibility=FOR%20ALL&status=current');
+        console.log('/exhibition/search?accessibility='+encodeURIComponent(accessURL).toUpperCase()+'&status='+encodeURIComponent(statusURL).toLowerCase());
+        const response = await fetch('/exhibition/search?accessibility='+encodeURIComponent(accessURL).toUpperCase()+'&status='+encodeURIComponent(statusURL).toLowerCase());
         const data = await response.json();
         setExhibitions(data);
       } catch (error) {
@@ -46,6 +36,14 @@ export default function Exhibition() {
       }
     };
 
+  function handleOnAccessibilityChange(e) {
+    setAccessURL(e.target.value);
+  }
+  
+  function handleOnStatusChange(e) {
+    setStatusURL(e.target.value);
+  }
+    
   function handleSubmit(e) {
     e.preventDefault();
     fetchQuery();
@@ -55,16 +53,24 @@ export default function Exhibition() {
     <>
       <div className="page-container">
         <div className="header-container">
-          <HeaderImage src={src} />
+          <HeaderImage src={"https://picsum.photos/id/237/300/200"} />
         </div>
 
         <h1>Our Exhibitions</h1>
         <form onSubmit={handleSubmit}>
-          {/*<Dropbox dropbox={dropbox_accessibility} handleAccessibility={handleAccessibility} handleStatus={handleStatus} />*/}
-          <p>{accessibility}</p>
-          <p>{status}</p>
+          <select name="accessibility" id="accessibility" className="accessibility" onChange={handleOnAccessibilityChange}>
+            {dropdown_accessibility.map((value) => (
+              <option value={value}>{value}</option>
+            ))}
+          </select>
+          <select name="status" id="status" className="status" onChange={handleOnStatusChange}>
+            {dropdown_status.map((value) => (
+              <option value={value}>{value}</option>
+            ))}
+          </select>
+          <input type="submit" value="Go"></input> 
         </form>
-        <CardCollection data = {exhibitions} />
+        {(exhibitions == "") ? <div>No search result found</div> : <CardCollection data={exhibitions} />}
       </div>
     </>
   );
