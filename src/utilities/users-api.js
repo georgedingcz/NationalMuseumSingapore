@@ -14,3 +14,13 @@ export function login(credentials) {
 export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
+
+export async function updateUser(id, data) {
+  try {
+    console.log("Update User Data:", data);
+    const user = await sendRequest(`/user`, "PATCH", data);
+    return user;
+  } catch (error) {
+    throw new Error("Failed to update user.");
+  }
+}
