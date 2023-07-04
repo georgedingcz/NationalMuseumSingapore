@@ -67,14 +67,6 @@ const patch = async (req, res) => {
   }
 };
 
-
-
-
-
-
-
-
-
 module.exports = {
   create,
   listAll,
