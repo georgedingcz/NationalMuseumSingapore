@@ -11,7 +11,7 @@ export default function Exhibition() {
   const [status, setStatus] = useState("");
 
   const handleAccessibilityChange = (e) => {
-    setState(e);
+    setAccessibility(e);
   };
 
   const handleStatusChange = (e) => {
