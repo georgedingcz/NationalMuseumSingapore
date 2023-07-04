@@ -1,29 +1,28 @@
 
-import React from 'react';
-export default function Dropbox(props) {
+{/*import React from 'react';
+export default function Dropbox(props, selectedOption, onOptionChange) {
 
-  {/*const handleChange = (event) => {
-    const selectedValue = event.target.value;
-    setChange(selectedValue);
-  };*/}
+  const Dropbox = ({ selectedOption, onOptionChange }) => {
+    const handleOptionSelect = (event) => {
+      const option = event.target.value;
+      onOptionChange(option);
+    };
 
   const arrayNames = Object.keys(props.dropbox);
   const arrayValues = Object.values(props.dropbox);
   const consistOfDate = arrayNames.includes("date");
 
-  {/*return (
+ return (
     <>
-      <select name="t" id="t" className="t" onChange={handleChange}>
-        {props.map((value) => (
-          <option value={value} id={value} className={value}>{value}</option>
-        ))}
-      </select>
+
     </>
   )
-};*/}
+};
   
+
 return (
     <>
+    {
       {consistOfDate ? (
         <>
           {arrayNames.map((names, index) => (
@@ -49,7 +48,8 @@ return (
           ))}
         </>
       )}
-      <input type="submit" value="Go"></input>     
+              <input type="submit" value="Go"></input> 
+                
     </>
   );
-}
+}*/}
