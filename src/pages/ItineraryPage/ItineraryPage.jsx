@@ -30,7 +30,7 @@ export default function ItineraryPage() {
       </div>
       <h1>Itinerary Planner</h1>
       <div>
-        <Dropbox dropbox={dropbox} />
+        {/*<Dropbox dropbox={dropbox} />*/}
       </div>
       <div>
         <Link to="/itinerary/select">SELECT MY ITINERARY</Link>
