@@ -1,0 +1,10 @@
+.tourCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px red solid;
+}
+
+.tourCard img {
+    max-width: 200px;
+}

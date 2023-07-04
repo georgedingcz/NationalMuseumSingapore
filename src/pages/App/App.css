@@ -104,14 +104,14 @@ nav a:hover {
   scroll-snap-type: y mandatory;
 }
 
-.section-container div{
+/* .section-container div{
   display: flex;
   align-self: center;
   justify-content: center;
   justify-self: center;
   width: 80%;
   scroll-snap-align: start;
-}
+} */
 
 button {
   cursor: pointer;

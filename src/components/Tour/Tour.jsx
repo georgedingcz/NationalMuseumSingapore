@@ -1,4 +1,5 @@
 import Card from "../Card/Card";
+import TourCard from "./TourCard";
 
 export default function Tour() {
   const card = {
@@ -16,11 +17,12 @@ export default function Tour() {
   };
 
   return (
-    <div className="section-container">
-      <p>This is the tour component</p>
-      <Card card={card} />
-      <Card card={card} />
-      <Card card={card} />
-    </div>
+    <>
+      <div className="section-container"></div>
+
+      <div className="section-container">
+        <TourCard />
+      </div>
+    </>
   );
 }
