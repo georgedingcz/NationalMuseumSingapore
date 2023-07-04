@@ -36,18 +36,8 @@ export default function Exhibition() {
     date: "",
   };
 
-  const fetchQuery = async () => {
-    try {
-      const response = await fetch('/exhibition/search?accessibility=FOR%20ALL&status=current');
-      const data = await response.json();
-      setExhibitions(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
-    const fetchAll = async () => {
+    const fetchExhibitions = async () => {
       try {
         const response = await fetch('/exhibition');
         const data = await response.json();
@@ -56,8 +46,18 @@ export default function Exhibition() {
         console.error(error);
       }
     };
-    fetchAll();
+    fetchExhibitions();
     }, []);
+
+    const fetchQuery = async () => {
+      try {
+        const response = await fetch('/exhibition/search?accessibility=FOR%20ALL&status=current');
+        const data = await response.json();
+        setExhibitions(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
   function handleSubmit(e) {
     e.preventDefault();

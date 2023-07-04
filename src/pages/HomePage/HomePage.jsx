@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 
 export default function HomePage() {
   const [happenings, setHappenings] = useState([]);
+  const [exhibitions, setExhibitions] = useState([]);
 
   useEffect(() => {
     const fetchHappenings = async () => {
@@ -19,6 +20,19 @@ export default function HomePage() {
       }
     };
     fetchHappenings();
+  }, []);
+
+  useEffect(() => {
+    const fetchExhibitions = async () => {
+      try {
+        const response = await fetch('/exhibition');
+        const data = await response.json();
+        setExhibitions(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchExhibitions();
   }, []);
 
   return (
@@ -38,7 +52,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Exhibitions</h2>
-        <CardCollection data ={happenings} />
+        <CardCollection data ={exhibitions} />
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>
