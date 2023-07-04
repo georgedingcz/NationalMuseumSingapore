@@ -6,7 +6,7 @@ export default function CardCollection(props) {
         <>  
             <div className="row">
                 {props.data.map((card) => (
-                        <Link className="link" to={card.id}>
+                        <Link className="link" to={card._id}>
                             <Card card={card} />
                         </Link>
                 ))}
