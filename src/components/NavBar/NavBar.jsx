@@ -12,6 +12,7 @@ export default function NavBar({ user, setUser }) {
   return (
     <nav>
       <Link to="/">Home</Link>&nbsp; | &nbsp;
+      <Link to="/tours">Tours</Link>&nbsp; | &nbsp;
       <Link to="/ticketing">Ticketing</Link>&nbsp; | &nbsp;
       <Link to="/exhibition">Exhibition</Link>&nbsp; | &nbsp;
       <Link to="/itinerary">Itinerary</Link>&nbsp; | &nbsp;
