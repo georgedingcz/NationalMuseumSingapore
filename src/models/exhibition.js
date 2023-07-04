@@ -4,19 +4,19 @@ const Schema = mongoose.Schema;
 const exhibitionSchema = new Schema({
     id: { type: String, required: true, unique: true },
     image: { type: String, required: true },
-    title: { type: String, required: true, minlength: 1, maxlength: 150 },
+    title: { type: String, required: true, minlength: 1 },
     content: {
         description: { type: String, required: true, minlength: 0 },
-        links: { type: Array }
+        links: { type: Array, required: true, default: [] }
     },
     duration: { type: Number, required: true },
     date: {
-        start_date: { type: Date, required: true },
-        end_date: { type: Date, required: true },
+        start_date: { type: Date, required: true, default: Date.now },
+        end_date: { type: Date, required: true, default: Date.now },
     },
     time: {
-        start_time: { type: String, required: true },
-        end_time: { type: String, required: true },
+        start_time: { type: String, required: true, default: getCurrentTime },
+        end_time: { type: String, required: true, default: getCurrentTime },
     },
     additional_notes: {
         location: { type: String },
@@ -41,9 +41,16 @@ const exhibitionSchema = new Schema({
             teachers: { type: Number, min: 0 }
         }
     },
-    accessibility: { type: String, enum: ['FOR ALL', 'ADULTS', 'CHILDREN', 'FAMILIES', 'SENIORS', 'SPECIAL NEEDS', 'STUDENTS', 'TEACHERS'], default: "FOR ALL", required: true }
+    accessibility: { type: String, enum: ["For All","Adults","Children","Families","Seniors","Special Needs","Students","Teachers"], default: "For All", required: true }
 }, {
     timestamps: true
 });
+
+function getCurrentTime() {
+    const currentTime = new Date();
+    const hours = currentTime.getHours().toString().padStart(2, '0');
+    const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+    return `${hours}:${minutes}`;
+  }
 
 module.exports = mongoose.model('Exhibition', exhibitionSchema);
