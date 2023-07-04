@@ -5,18 +5,18 @@ const exhibitionSchema = new Schema({
     id: { type: String, required: true, unique: true },
     image: { type: String, required: true },
     title: { type: String, required: true, minlength: 1, maxlength: 150 },
-    exhibition_type: { type: String },
     content: {
         description: { type: String, required: true, minlength: 0 },
         links: { type: Array }
     },
+    duration: { type: Number, required: true },
     date: {
-        start_date: { type: Date },
-        end_date: { type: Date },
+        start_date: { type: Date, required: true },
+        end_date: { type: Date, required: true },
     },
     time: {
-        start_time: { type: String },
-        end_time: { type: String },
+        start_time: { type: String, required: true },
+        end_time: { type: String, required: true },
     },
     additional_notes: {
         location: { type: String },

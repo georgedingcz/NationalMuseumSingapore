@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import React, { useEffect, useState } from 'react';
 
-export default function ExhibitionCardCollection(props) {
+export default function CardCollection(props) {
     return (
         <>  
             <div className="row">
-                {props.elements.map((card) => (
+                {props.data.map((card) => (
                         <Link className="link" to={card.id}>
                             <Card card={card} />
                         </Link>

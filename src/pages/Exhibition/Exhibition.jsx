@@ -2,16 +2,17 @@ import "../../pages/Exhibition/Exhibition.css";
 import HeaderImage from "../../components/HeaderImage/HeaderImage";
 import Dropbox from "../../components/Dropbox/Dropbox";
 import React, { useEffect, useState } from 'react';
-import ExhibitionCardCollection from "../../components/Card/ExhibitionCardCollection";
+import CardCollection from "../../components/Card/CardCollection";
 
 export default function Exhibition() {
 
   const [exhibitions, setExhibitions] = useState([]);
+  
   const [accessibility, setAccessibility] = useState("");
   const [status, setStatus] = useState("");
 
   const handleAccessibilityChange = (e) => {
-    setState(e);
+    setAccessibility(e);
   };
 
   const handleStatusChange = (e) => {
@@ -72,9 +73,9 @@ export default function Exhibition() {
 
         <h1>Our Exhibitions</h1>
         <form onSubmit={handleSubmit}>
-          <Dropbox dropbox={dropbox} accessibility={accessibility} getAccess={handleAccessibilityChange} status={status} getStatus={handleStatusChange} />
+          <Dropbox dropbox={dropbox} accessibility={accessibility} getAccess = {handleAccessibilityChange} status = {status} getStatus = {handleStatusChange} />
         </form>
-        <ExhibitionCardCollection elements = {exhibitions} />
+        <CardCollection data = {exhibitions} />
       </div>
     </>
   );
