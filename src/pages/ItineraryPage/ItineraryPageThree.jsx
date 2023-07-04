@@ -146,7 +146,7 @@ export default function ItineraryPageThree({ user }) {
 
       <section className="section-container">
         {/* {getRandomIntInclusive(0,exhibitions.length -1)} */}
-        {getRandomNumbersWithoutRepeat(1, 10, 5)}
+        {getRandomNumbersWithoutRepeat(1, 10, 5).join(", ")}
         <button onClick={handleFetch}>Show me available exhibitions</button>
       </section>
 
