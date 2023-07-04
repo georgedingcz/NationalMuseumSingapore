@@ -141,3 +141,13 @@ button :disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
   background-color: grey;
 }
+
+.site-button {
+  display: grid;
+  grid-template-columns: 120px 30px;
+  width: 150px;
+  height: 100px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+}
