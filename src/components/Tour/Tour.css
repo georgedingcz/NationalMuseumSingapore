@@ -3,8 +3,27 @@
     flex-direction: column;
     justify-content: center;
     border: 1px red solid;
+    text-align: center;
+    justify-items: center;
+    width: max-content;
 }
 
 .tourCard img {
-    max-width: 200px;
+    max-width: 600px;
+    min-width: 300px;
+    display: flex;
+}
+
+.disclaimer-box {
+    border: 2px blue solid;
+    min-width: 300px;
+    max-width: 40%;
+    box-sizing: border-box;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+.tourCard-header {
+    align-items: center;
+    height: 80px;
 }

@@ -1,26 +1,16 @@
-import Card from "../Card/Card";
 import TourCard from "./TourCard";
 
 export default function Tour() {
-  const card = {
-    image: "https://picsum.photos/200",
-    date: {
-      start_date: "",
-      end_date: "",
-      permanent: true,
-    },
-    title: "Tour Title",
-    content: {
-      description: "This is the content of the card.",
-    },
-    additional_notes: "Additional notes for the card.",
-  };
-
   return (
     <>
-      <div className="section-container"></div>
-
       <div className="section-container">
+        <div className="disclaimer-box">
+          The group size of each tour is limited to a maximum of 15 pax{" "}
+          (excluding guide). Note: You are encouraged to contact our front desk
+          on the tour schedule and availabilit, as the tours are subjected to
+          changes. Each tour is approximately one hour, on a first come, first
+          served basis.
+        </div>
         <TourCard />
       </div>
     </>
