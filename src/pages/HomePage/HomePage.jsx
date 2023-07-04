@@ -1,8 +1,9 @@
 import MuseumCard from "../../components/Museum/MuseumCard";
 import TicketingButton from "../../components/TicketingButton/TicketingButton";
 import "../HomePage/HomePage.css";
-import HomePageCardCollection from "../../components/Card/HomePageCardCollection";
 import { Link } from "react-router-dom";
+import Homepage_HappeningNow from "../../components/Card/Homepage_HappeningNow";
+import Homepage_Exhibition from "../../components/Card/Homepage_Exhibition";
 
 export default function HomePage() {
   return (
@@ -14,7 +15,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Happening Now</h2>
-        <HomePageCardCollection />
+        <Homepage_HappeningNow />
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
         </Link>
@@ -22,7 +23,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Exhibitions</h2>
-        <HomePageCardCollection />
+        <Homepage_Exhibition />
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>
