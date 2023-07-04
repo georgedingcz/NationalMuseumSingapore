@@ -2,51 +2,29 @@ import "../../pages/Exhibition/Exhibition.css";
 import HeaderImage from "../../components/HeaderImage/HeaderImage";
 import Dropbox from "../../components/Dropbox/Dropbox";
 import React, { useEffect, useState } from 'react';
-import ExhibitionCardCollection from "../../components/Card/ExhibitionCardCollection";
+import CardCollection from "../../components/Card/CardCollection";
 
 export default function Exhibition() {
 
   const [exhibitions, setExhibitions] = useState([]);
-  const [accessibility, setAccessibility] = useState("");
+  
+  const [accessibility, setAccessibility] = useState("For%20All");
   const [status, setStatus] = useState("");
 
-  const handleAccessibilityChange = (e) => {
+  const handleAccessibility = (e) => {
     setAccessibility(e);
   };
 
-  const handleStatusChange = (e) => {
+  const handleStatus = (e) => {
     setStatus(e);
   };
 
+  const dropbox_accessibility = ["For All","Adults","Children","Families","Seniors","Special Needs","Students","Teachers"];
+  const dropbox_status = ["Current", "Upcoming", "Past"];
   const src = "https://picsum.photos/id/237/300/200";
 
-  const dropbox = {
-    type: [
-      "For All",
-      "Adults",
-      "Children",
-      "Families",
-      "Seniors",
-      "Special Needs",
-      "Students",
-      "Teachers",
-    ],
-    status: ["Current", "Upcoming", "Past"],
-    date: "",
-  };
-
-  const fetchQuery = async () => {
-    try {
-      const response = await fetch('/exhibition/search?accessibility=FOR%20ALL&status=current');
-      const data = await response.json();
-      setExhibitions(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   useEffect(() => {
-    const fetchAll = async () => {
+    const fetchExhibitions = async () => {
       try {
         const response = await fetch('/exhibition');
         const data = await response.json();
@@ -55,8 +33,18 @@ export default function Exhibition() {
         console.error(error);
       }
     };
-    fetchAll();
+    fetchExhibitions();
     }, []);
+
+    const fetchQuery = async () => {
+      try {
+        const response = await fetch('/exhibition/search?accessibility=FOR%20ALL&status=current');
+        const data = await response.json();
+        setExhibitions(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -72,10 +60,39 @@ export default function Exhibition() {
 
         <h1>Our Exhibitions</h1>
         <form onSubmit={handleSubmit}>
-          <Dropbox dropbox={dropbox} accessibility={accessibility} getAccess={handleAccessibilityChange} status={status} getStatus={handleStatusChange} />
+          {/*<Dropbox dropbox={dropbox_accessibility} handleAccessibility={handleAccessibility} handleStatus={handleStatus} />*/}
+          <p>{accessibility}</p>
+          <p>{status}</p>
         </form>
-        <ExhibitionCardCollection elements = {exhibitions} />
+        <CardCollection data = {exhibitions} />
       </div>
     </>
   );
 }
+
+
+
+/*
+
+import React, { useState } from 'react';
+
+function ChildComponent({ childState, updateParentState }) {
+  const [childValue, setChildValue] = useState('');
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setChildValue(newValue);
+    updateParentState(newValue); // Call the callback function to update the parent's state
+  };
+
+  return (
+    <div>
+      <input type="text" value={childValue} onChange={handleChange} />
+      <p>Value in child: {childState}</p>
+    </div>
+  );
+}
+
+export default ChildComponent;
+
+*/

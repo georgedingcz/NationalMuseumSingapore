@@ -2,10 +2,39 @@ import MuseumCard from "../../components/Museum/MuseumCard";
 import TicketingButton from "../../components/TicketingButton/TicketingButton";
 import "../HomePage/HomePage.css";
 import { Link } from "react-router-dom";
-import Homepage_HappeningNow from "../../components/Card/Homepage_HappeningNow";
-import Homepage_Exhibition from "../../components/Card/Homepage_Exhibition";
+import CardCollection from "../../components/Card/CardCollection";
+import React, { useEffect, useState } from 'react';
 
 export default function HomePage() {
+  const [happenings, setHappenings] = useState([]);
+  const [exhibitions, setExhibitions] = useState([]);
+
+  useEffect(() => {
+    const fetchHappenings = async () => {
+      try {
+        const response = await fetch('/exhibition/search?status=current');
+        const data = await response.json();
+        setHappenings(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchHappenings();
+  }, []);
+
+  useEffect(() => {
+    const fetchExhibitions = async () => {
+      try {
+        const response = await fetch('/exhibition');
+        const data = await response.json();
+        setExhibitions(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchExhibitions();
+  }, []);
+
   return (
     <div className="page-container">
       <div className="section-container">
@@ -15,7 +44,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Happening Now</h2>
-        <Homepage_HappeningNow />
+        <CardCollection data ={happenings} />
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
         </Link>
@@ -23,7 +52,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Exhibitions</h2>
-        <Homepage_Exhibition />
+        <CardCollection data ={exhibitions} />
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>
