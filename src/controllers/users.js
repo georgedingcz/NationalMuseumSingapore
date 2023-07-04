@@ -35,22 +35,35 @@ const listOne = async (req, res) => {
 };
 
 const patch = async (req, res) => {
-  if (!req.body) {
-    res
-      .status(400)
-      .json({ message: "No itinerary details has been detected." });
-  } else {
-    const { id, name, itinerary } = req.body;
-    try {
-      const user = await User.findByIdAndUpdate(
-        id,
-        { name, itinerary },
-        { patch: true }
-      );
-      res.status(200).json(user);
-    } catch (err) {
-      res.status(500).json({ err });
+  const { id, itinerary } = req.body;
+
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
     }
+
+    const updateOperations = itinerary.map(item => ({
+      updateOne: {
+        filter: { _id: id },
+        update: {
+          $addToSet: {
+            itinerary: {
+              exhibitionId: item.selectedCardId,
+              exhibitionName: item.selectedCardTitle
+            }
+          }
+        }
+      }
+    }));
+
+    await User.bulkWrite(updateOperations);
+
+    const updatedUser = await User.findById(id);
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ error });
   }
 };
 

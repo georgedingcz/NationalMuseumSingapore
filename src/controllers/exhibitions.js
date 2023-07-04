@@ -44,6 +44,8 @@ const Exhibition = require("../models/exhibition");
     console.log("test")
   }
 
+  
+
 module.exports = {
     create,
     getAllExhibitions,
