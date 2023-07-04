@@ -1,3 +1,4 @@
+import SiteButton from "../../components/general/SiteButton";
 import "./TicketingPage.css";
 
 export default function TicketingPage() {
@@ -30,6 +31,7 @@ export default function TicketingPage() {
           </div>
         </div>
       </div>
+      <SiteButton />
     </>
   );
 }
