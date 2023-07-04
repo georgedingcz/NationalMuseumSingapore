@@ -13,7 +13,7 @@ const Exhibition = require("../models/exhibition");
     }
   }
 
-  const getAllExhibitions = async (req, res) => {
+  const listAll = async (req, res) => {
     try {
         const exhibitions = await Exhibition.find();
         res.json(exhibitions);
@@ -22,6 +22,34 @@ const Exhibition = require("../models/exhibition");
         res.status(500).json({ message: 'Server Error' });
       }
   }
+
+  const listExhibitions = async (req, res) => {
+    const { accessibility, status } = req.query;
+  
+    try {
+      const currentDate = new Date();
+      let filter = {};
+  
+      if (accessibility) {
+        filter.accessibility = accessibility;
+      }
+  
+      if (status === "current") {
+        filter["date.start_date"] = { $lte: currentDate };
+        filter["date.end_date"] = { $gte: currentDate };
+      } else if (status === "upcoming") {
+        filter["date.start_date"] = { $gt: currentDate };
+      } else if (status === "past") {
+        filter["date.end_date"] = { $lt: currentDate };
+      }
+  
+      const exhibitions = await Exhibition.find(filter);
+      res.json(exhibitions);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Server Error' });
+    }
+  };
 
   const listOne = async (req, res) => {
       const {id} = req.params;
@@ -48,7 +76,8 @@ const Exhibition = require("../models/exhibition");
 
 module.exports = {
     create,
-    getAllExhibitions,
+    listAll,
     listOne,
     filtered,
+    listExhibitions
 };
