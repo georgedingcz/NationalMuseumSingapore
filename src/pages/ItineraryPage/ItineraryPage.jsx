@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Dropbox from "../../components/Dropbox/Dropbox";
 import ItineraryPicture from "../../components/Itinerary/ItineraryPicture";
 
 export default function ItineraryPage() {
