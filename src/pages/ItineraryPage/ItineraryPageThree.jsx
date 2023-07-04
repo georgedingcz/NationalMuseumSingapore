@@ -10,6 +10,7 @@ export default function ItineraryPageThree({ user }) {
 
   const [chosenDate, setChosenDate] = useState();
   const [chosenAccessibility, setChosenAccessibility] = useState();
+  const [chosenDuration, setChosenDuration] = useState();
 
   const fetchQuery = async () => {
     try {
@@ -21,13 +22,34 @@ export default function ItineraryPageThree({ user }) {
     } catch (error) {
       console.error(error);
     }
-    setIsLoading(false)
+    setIsLoading(false);
   };
 
-const handleFetch = (evt) => {
-    fetchQuery()
-}
+  const handleFetch = (evt) => {
+    fetchQuery();
+    console.log("this test", testArray);
+  };
 
+  const testArray = exhibitions.map((exhibit, index) => {
+    return exhibit._id;
+  });
+
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+  }
+
+  //   getRandomIntInclusive(0,exhibitions.length -1)
+
+  const getRandomNumbersWithoutRepeat = (min, max, count) => {
+    const numbers = new Set();
+    while (numbers.size < count) {
+      const number = getRandomIntInclusive(min, max);
+      numbers.add(number);
+    }
+    return Array.from(numbers);
+  };
 
   const handleCheckboxChange = (card) => {
     setSelectedCard((prevSelectedCards) => {
@@ -68,6 +90,10 @@ const handleFetch = (evt) => {
     setChosenAccessibility(evt.target.value);
   };
 
+  const handleDuration = (evt) => {
+    setChosenDuration(evt.target.value);
+  };
+
   return (
     <div className="page-container">
       <h1>Welcome {user.name}!</h1>
@@ -100,14 +126,28 @@ const handleFetch = (evt) => {
           <option value="SPECIAL NEEDS">Special Needs</option>
           <option value="STUDENTS">Students</option>
           <option value="TEACHERS">Teachers</option>
-
         </select>
       </section>
 
       <section className="section-container">
-<button onClick={handleFetch}>
-    Show me available exhibitions
-</button>
+        <h3>Select Duration Of Visit</h3>
+        <select
+          name="durationTypes"
+          id="types-select"
+          onChange={handleDuration}
+        >
+          <option value={chosenDuration}>Duration Types</option>
+          <option value="2">2 hours</option>
+          <option value="3">3 hours</option>
+          <option value="5">5 hours</option>
+          <option value="9">Full day</option>
+        </select>
+      </section>
+
+      <section className="section-container">
+        {/* {getRandomIntInclusive(0,exhibitions.length -1)} */}
+        {getRandomNumbersWithoutRepeat(1, 10, 5)}
+        <button onClick={handleFetch}>Show me available exhibitions</button>
       </section>
 
       <section className="section-container">
