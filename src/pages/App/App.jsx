@@ -16,7 +16,7 @@ import ContactUs from "../ContactUs/ContactUs";
 import PrivacyStatement from "../PrivacyStatement/PrivacyStatement";
 import TermsOfUse from "../TermsOfUse/TermsOfUse";
 import TourPage from "../Tour/TourPage";
-import ItineraryPageThree from "../ItineraryPage/ItineraryPageThree";
+import ItineraryPage from "../ItineraryPage/ItineraryPage";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -39,7 +39,7 @@ export default function App() {
             path="/itinerary"
             element={
               user ? (
-                <ItineraryPageThree user={user} setUser={setUser}/>
+                <ItineraryPage user={user} setUser={setUser} />
               ) : (
                 <Navigate to="/auth" replace />
               )
@@ -48,7 +48,11 @@ export default function App() {
           <Route
             path="/itinerary/select"
             element={
-              user ? <ItinerarySelectPage user={user} setUser={setUser}/> : <Navigate to="/auth" replace />
+              user ? (
+                <ItinerarySelectPage user={user} setUser={setUser} />
+              ) : (
+                <Navigate to="/auth" replace />
+              )
             }
           />
           <Route
