@@ -70,12 +70,14 @@ const patch = async (req, res) => {
 const deleteItinerary = async (req, res) => {
   const { id } = req.params;
   try {
-    const user = await User.findById(id);
-    await user.itinerary.deleteMany();
-    await user.save();
+    const user = await User.findByIdAndUpdate(
+      id,
+      { $unset: { itinerary: 1 } },
+      { new: true }
+    );
     res.status(200).json(user);
   } catch (err) {
-    res.status(500).json({ err });
+    res.status(500).json({ error: err.message });
   }
 };
 
