@@ -110,9 +110,6 @@ export default function ItineraryPage({ user, setUser }) {
       <section className="section-container">
         <h3>Select your Visit Date!</h3>
         <input type="date" id="start" name="trip-start" onChange={handleDate} />
-      </section>
-
-      <section className="section-container">
         <h3>Select A Ticket Type</h3>
         <select
           name="visitorTypes"
@@ -129,9 +126,7 @@ export default function ItineraryPage({ user, setUser }) {
           <option value="Students">Students</option>
           <option value="Teachers">Teachers</option>
         </select>
-      </section>
 
-      <section className="section-container">
         <h3>Select Duration Of Visit</h3>
         <select
           name="durationTypes"
@@ -144,38 +139,32 @@ export default function ItineraryPage({ user, setUser }) {
           <option value="5">5 hours</option>
           <option value="9">Full day</option>
         </select>
-      </section>
-
-      <section className="section-container">
-        {/* for testing */}
-
-        {randomArray.join(", ")}
-
-        {/* end testing stuff here */}
 
         <button onClick={handleFetch}>Show me available exhibitions</button>
       </section>
 
       <section className="section-container">
         <h4>Here is what we suggest based on the criteria selected:</h4>
+        <div className="itinerary-cards">
+          {exhibitions.map((exhibition, index) => {
+            if (randomArray.includes(index)) {
+              return (
+                <div key={exhibition._id}>
+                  <Card card={exhibition} />
+                  <input
+                    type="checkbox"
+                    checked={selectedCard.some(
+                      (card) => card._id === exhibition._id
+                    )}
+                    onChange={() => handleCheckboxChange(exhibition)}
+                  ></input>
+                </div>
+              );
+            }
 
-        {exhibitions.map((exhibition, index) => {
-          if (randomArray.includes(index)) {
-            return (
-              <div key={exhibition._id}>
-                <Card card={exhibition} />
-                <input
-                  type="checkbox"
-                  checked={selectedCard.some(
-                    (card) => card._id === exhibition._id
-                  )}
-                  onChange={() => handleCheckboxChange(exhibition)}
-                />
-              </div>
-            );
-          }
-          return null;
-        })}
+            return null;
+          })}
+        </div>
       </section>
       <section className="section-container">
         {selectedCard.length > 0 && (
@@ -184,9 +173,6 @@ export default function ItineraryPage({ user, setUser }) {
             {selectedCard.map((card) => card.title || "Untitled").join(", ")}
           </p>
         )}
-      </section>
-
-      <section className="section-container">
         <button onClick={handlePatchButtonClick}>Choose Itinerary</button>
       </section>
     </div>

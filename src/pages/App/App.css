@@ -151,3 +151,8 @@ button :disabled, form:invalid button[type="submit"] {
   color: white;
   text-align: center;
 }
+
+.itinerary-cards {
+  display: flex;
+  flex-direction: row;
+}

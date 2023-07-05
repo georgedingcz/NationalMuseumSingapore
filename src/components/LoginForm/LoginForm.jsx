@@ -2,7 +2,7 @@ import { useState } from "react";
 import * as usersService from "../../utilities/users-service";
 import { Navigate } from "react-router-dom";
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm({ user, setUser }) {
   const [credentials, setCredentials] = useState({
     email: "",
     password: "",
@@ -25,13 +25,18 @@ export default function LoginForm({ setUser }) {
       const user = await usersService.login(credentials);
       setUser(user);
       setLoginSuccess(true);
+      console.log(user);
     } catch {
       setError("Log In Failed - Try Again");
     }
   }
 
   if (loginSuccess) {
-    return <Navigate to="/itinerary" />;
+    if (user && user.itinerary.length > 0) {
+      return <Navigate to="/itinerary/select" />;
+    } else {
+      return <Navigate to="/itinerary" />;
+    }
   }
 
   return (
