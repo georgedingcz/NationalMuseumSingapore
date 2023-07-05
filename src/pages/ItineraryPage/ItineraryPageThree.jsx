@@ -144,7 +144,7 @@ export default function ItineraryPageThree({ user }) {
       <section className="section-container">
         {/* for testing */}
 
-        {randomArray}
+        {randomArray.join(", ")}
 
         {/* end testing stuff here */}
 
