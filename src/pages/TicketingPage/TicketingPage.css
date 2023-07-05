@@ -1,23 +1,21 @@
-
 .checkout {
-    width: 50%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     gap: 5px;
-}
-
-.checkout > * {
+  }
+  
+  .checkout > * {
     margin-left: auto;
     margin-right: auto;
   }
-
-.checkout div:nth-child(5) {
+  
+  .checkout div:nth-child(5) {
     display: flex;
     justify-content: center;
-}
-
-.selection-box {
+  }
+  
+  .selection-box {
     display: flex;
     border: 1px solid red;
     box-sizing: border-box;
@@ -27,16 +25,96 @@
     align-items: center;
     height: 50px;
     padding: 4%;
-}
-
-.selection-box label {
+  }
+  
+  .selection-box label {
     font-size: 10px;
     font-weight: bold;
-}
-
-.selection-box input {
+    width: 50%;
+  }
+  
+  .selection-box input {
     width: 25px;
     height: 25px;
-    
-}
-
+    display: flex;
+    justify-self: flex-end;
+  }
+  
+  .details-container {
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    border: 1px blue solid;
+  }
+  
+  .details-container button,
+  input {
+    flex-basis: calc(50% - 5px);
+    width: 200px;
+    background-color: rgb(220, 220, 220);
+    border: 1px solid rgb(48, 63, 91);
+    color: black;
+  }
+  
+  .details-container button:focus,
+  .details-container button.active {
+    background-color: rgb(48, 63, 91);
+    color: white;
+  }
+  
+  .details-container > h3 {
+    width: 100%;
+  }
+  
+  .details-container > input {
+    outline: 0;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 0.25rem;
+    width: 100px;
+  }
+  
+  .number-button {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+  }
+  
+  .number-button section {
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-end;
+  }
+  
+  .number-button > h4 {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+  }
+  
+  .number-button p {
+    width: 50px;
+    border: 1px solid rgb(48, 63, 91);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .number-button button {
+    max-width: 70px;
+    border-radius: 0px;
+  }
+  
+  .details-container .number-button button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  

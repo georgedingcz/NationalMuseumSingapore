@@ -1,4 +1,6 @@
-export default function CheckoutPage() {
+import { useState } from "react";
+
+export default function TicketingSelect() {
   return (
     <div className="section-container">
       <div className="checkout">
