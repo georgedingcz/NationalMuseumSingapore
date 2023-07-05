@@ -3,7 +3,7 @@ import Card from "../../components/Card/Card";
 import { updateUser } from "../../utilities/users-api";
 import { Link } from "react-router-dom";
 
-export default function ItineraryPageThree({ user }) {
+export default function ItineraryPageThree({ user, setUser }) {
   const [exhibitions, setExhibitions] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
 
@@ -75,6 +75,7 @@ export default function ItineraryPageThree({ user }) {
         itinerary,
       };
       const updatedUser = await updateUser(userId, requestBody);
+      setUser(updatedUser)
       console.log("User updated:", updatedUser);
     } catch (error) {
       console.error("Error updating user:", error);

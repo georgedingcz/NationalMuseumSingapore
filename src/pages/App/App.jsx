@@ -41,7 +41,7 @@ export default function App() {
             path="/itinerary"
             element={
               user ? (
-                <ItineraryPageThree user={user} />
+                <ItineraryPageThree user={user} setUser={setUser}/>
               ) : (
                 <Navigate to="/auth" replace />
               )
