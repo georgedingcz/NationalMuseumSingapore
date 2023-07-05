@@ -4,13 +4,28 @@ import { updateUser } from "../../utilities/users-api";
 
 export default function ItineraryPageThree({ user }) {
   const [exhibitions, setExhibitions] = useState([]);
-  const [accessibilityOptions, setAccessibilityOptions] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   const [chosenDate, setChosenDate] = useState();
   const [chosenAccessibility, setChosenAccessibility] = useState();
   const [chosenDuration, setChosenDuration] = useState();
+
+  const [randomArray, setRandomArray] = useState([]);
+
+  const getRandomIntInclusive = (min, max) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  };
+
+  const getRandomNumbersWithoutRepeat = (min, max, count) => {
+    const numbers = new Set();
+    while (numbers.size < count) {
+      const number = getRandomIntInclusive(min, max);
+      numbers.add(number);
+    }
+    return Array.from(numbers);
+  };
 
   const fetchQuery = async () => {
     try {
@@ -22,33 +37,15 @@ export default function ItineraryPageThree({ user }) {
     } catch (error) {
       console.error(error);
     }
-    setIsLoading(false);
   };
 
-  const handleFetch = (evt) => {
-    fetchQuery();
-    console.log("this test", testArray);
-  };
-
-  const testArray = exhibitions.map((exhibit, index) => {
-    return exhibit._id;
-  });
-
-  function getRandomIntInclusive(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
-  }
-
-  //   getRandomIntInclusive(0,exhibitions.length -1)
-
-  const getRandomNumbersWithoutRepeat = (min, max, count) => {
-    const numbers = new Set();
-    while (numbers.size < count) {
-      const number = getRandomIntInclusive(min, max);
-      numbers.add(number);
+  const handleFetch = async (evt) => {
+    await fetchQuery();
+    if (exhibitions.length >= 2 && chosenDuration >= 1) {
+      setRandomArray(
+        getRandomNumbersWithoutRepeat(0, exhibitions.length - 1, chosenDuration)
+      );
     }
-    return Array.from(numbers);
   };
 
   const handleCheckboxChange = (card) => {
@@ -118,14 +115,14 @@ export default function ItineraryPageThree({ user }) {
           onChange={handleAccessibility}
         >
           <option value={chosenAccessibility}>Visitor Types</option>
-          <option value="FOR ALL">For All</option>
-          <option value="ADULTS">Adults</option>
-          <option value="CHILDREN">Children</option>
-          <option value="FAMILIES">Families</option>
-          <option value="SENIORS">Seniors</option>
-          <option value="SPECIAL NEEDS">Special Needs</option>
-          <option value="STUDENTS">Students</option>
-          <option value="TEACHERS">Teachers</option>
+          <option value="For All">For All</option>
+          <option value="Adults">Adults</option>
+          <option value="Children">Children</option>
+          <option value="Families">Families</option>
+          <option value="Seniors">Seniors</option>
+          <option value="Special Needs">Special Needs</option>
+          <option value="Students">Students</option>
+          <option value="Teachers">Teachers</option>
         </select>
       </section>
 
@@ -145,28 +142,33 @@ export default function ItineraryPageThree({ user }) {
       </section>
 
       <section className="section-container">
-        {/* {getRandomIntInclusive(0,exhibitions.length -1)} */}
-        {getRandomNumbersWithoutRepeat(1, 10, 5).join(", ")}
+        {/* for testing */}
+
+        {randomArray}
+
+        {/* end testing stuff here */}
+
         <button onClick={handleFetch}>Show me available exhibitions</button>
       </section>
 
       <section className="section-container">
-        {isLoading ? (
-          <div></div>
-        ) : (
-          exhibitions.map((exhibition) => (
-            <div key={exhibition._id}>
-              <Card card={exhibition} />
-              <input
-                type="checkbox"
-                checked={selectedCard.some(
-                  (card) => card._id === exhibition._id
-                )}
-                onChange={() => handleCheckboxChange(exhibition)}
-              />
-            </div>
-          ))
-        )}
+        {exhibitions.map((exhibition, index) => {
+          if (randomArray.includes(index)) {
+            return (
+              <div key={exhibition._id}>
+                <Card card={exhibition} />
+                <input
+                  type="checkbox"
+                  checked={selectedCard.some(
+                    (card) => card._id === exhibition._id
+                  )}
+                  onChange={() => handleCheckboxChange(exhibition)}
+                />
+              </div>
+            );
+          }
+          return null;
+        })}
       </section>
 
       {selectedCard.length > 0 && (
