@@ -47,11 +47,11 @@ const patch = async (req, res) => {
       updateOne: {
         filter: { _id: id },
         update: {
-          $addToSet: {
-            itinerary: {
+          $set: {
+            itinerary: itinerary.map((item) => ({
               exhibitionId: item.selectedCardId,
               exhibitionName: item.selectedCardTitle,
-            },
+            })),
           },
         },
       },
