@@ -22,7 +22,7 @@ export default function ItinerarySelectPage({ user, setUser }) {
   };
 
   const handleDeleteItinerary = (evt) => fetchQuery();
-
+  console.log("User itinerary:", user.itinerary);
   return (
     <div className="page-container">
       Availble exhibitions
