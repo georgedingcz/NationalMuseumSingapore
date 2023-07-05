@@ -3,6 +3,7 @@ import TicketingButton from "../../components/TicketingButton/TicketingButton";
 import "../HomePage/HomePage.css";
 import { Link } from "react-router-dom";
 import CardCollection from "../../components/Card/CardCollection";
+import CardCollectionSlider from "../../components/Card/CardCollectionSlider";
 import React, { useEffect, useState } from 'react';
 
 export default function HomePage() {
@@ -44,7 +45,8 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Happening Now</h2>
-        <CardCollection data ={happenings} />
+          <CardCollectionSlider data ={happenings} />
+        {/*<CardCollection data ={happenings} />*/}
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
         </Link>
@@ -52,7 +54,8 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Exhibitions</h2>
-        <CardCollection data ={exhibitions} />
+          <CardCollectionSlider data ={exhibitions} />
+        {/*<CardCollection data ={exhibitions} />*/}
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>

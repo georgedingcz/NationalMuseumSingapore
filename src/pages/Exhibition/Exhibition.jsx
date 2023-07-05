@@ -14,10 +14,6 @@ export default function Exhibition() {
   const [selectedAccessibility, setSelectedAccessibility] = useState(searchParams.get('accessibility'));
   const [selectedStatus, setSelectedStatus] = useState(searchParams.get('status'));
 
-
-
-
-
   const [exhibitions, setExhibitions] = useState([]);
   const [accessURL, setAccessURL] = useState(accessibility || 'For All');
   const [statusURL, setStatusURL] = useState(status || 'Current');
