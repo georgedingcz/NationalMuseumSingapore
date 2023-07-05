@@ -28,13 +28,10 @@ export default function ItinerarySelectPage({ user, setUser }) {
         ) : null}
       </section>
       <section className="section-container">
-        {user && user.itinerary ? (
-          user.itinerary.map((each, index) => (
+        {user.itinerary?.map((each, index) => (
             <div key={index}>{each.exhibitionName}</div>
           ))
-        ) : (
-          <div>No itinerary found.</div>
-        )}
+       }
       </section>
       <section className="section-container">
         <button onClick={handleDeleteItinerary}>Delete my itinerary</button>
