@@ -19,12 +19,6 @@ export default function Footer() {
         />
       </div>
       <div>
-        Subscribe to our newsletter
-        <Link to="/subscribe">
-          <button>SUBSCRIBE</button>
-        </Link>
-      </div>
-      <div>
         <GeneralInfo />
       </div>
       <div>

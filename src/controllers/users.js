@@ -43,18 +43,18 @@ const patch = async (req, res) => {
       return res.status(404).json({ message: "User not found" });
     }
 
-    const updateOperations = itinerary.map(item => ({
+    const updateOperations = itinerary.map((item) => ({
       updateOne: {
         filter: { _id: id },
         update: {
-          $addToSet: {
-            itinerary: {
+          $set: {
+            itinerary: itinerary.map((item) => ({
               exhibitionId: item.selectedCardId,
-              exhibitionName: item.selectedCardTitle
-            }
-          }
-        }
-      }
+              exhibitionName: item.selectedCardTitle,
+            })),
+          },
+        },
+      },
     }));
 
     await User.bulkWrite(updateOperations);
@@ -67,9 +67,22 @@ const patch = async (req, res) => {
   }
 };
 
+const deleteItinerary = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
+    await user.itinerary.deleteMany();
+    await user.save();
+    res.status(200).json(user);
+  } catch (err) {
+    res.status(500).json({ err });
+  }
+};
+
 module.exports = {
   create,
   listAll,
   listOne,
   patch,
+  deleteItinerary,
 };

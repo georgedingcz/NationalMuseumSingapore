@@ -68,11 +68,6 @@ const itineraryListExhibition = async (req, res) => {
       filter["date.end_date"] = { $gte: date };
     }
 
-// test start
-
-
-// test end
-
     const exhibitions = await Exhibition.find(filter);
     res.json(exhibitions);
   } catch (error) {
@@ -95,7 +90,6 @@ module.exports = {
   create,
   listAll,
   listOne,
-  // filtered,
   listExhibitions,
   itineraryListExhibition,
 };

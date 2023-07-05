@@ -9,9 +9,7 @@ import CheckOutPage from "../TicketingPage/CheckOutPage";
 import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
 import MapPage from "../MapPage/MapPage";
-import ItineraryPage from "../ItineraryPage/ItineraryPage";
 import ExhibitionDetails from "../Exhibition/ExhibitionDetails";
-import Subscription from "../../components/Footer/Subscription";
 import Footer from "../../components/Footer/Footer";
 import ItinerarySelectPage from "../ItineraryPage/ItinerarySelectPage";
 import { Navigate } from "react-router-dom";
@@ -19,7 +17,6 @@ import ContactUs from "../ContactUs/ContactUs";
 import PrivacyStatement from "../PrivacyStatement/PrivacyStatement";
 import TermsOfUse from "../TermsOfUse/TermsOfUse";
 import TourPage from "../Tour/TourPage";
-import ItineraryPageTwo from "../ItineraryPage/ItineraryPageTwo";
 import ItineraryPageThree from "../ItineraryPage/ItineraryPageThree";
 
 export default function App() {
@@ -44,7 +41,7 @@ export default function App() {
             path="/itinerary"
             element={
               user ? (
-                <ItineraryPageThree user={user} />
+                <ItineraryPageThree user={user} setUser={setUser}/>
               ) : (
                 <Navigate to="/auth" replace />
               )
@@ -53,7 +50,7 @@ export default function App() {
           <Route
             path="/itinerary/select"
             element={
-              user ? <ItinerarySelectPage /> : <Navigate to="/auth" replace />
+              user ? <ItinerarySelectPage user={user} setUser={setUser}/> : <Navigate to="/auth" replace />
             }
           />
           <Route

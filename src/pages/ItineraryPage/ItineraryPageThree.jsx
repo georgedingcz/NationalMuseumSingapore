@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import Card from "../../components/Card/Card";
 import { updateUser } from "../../utilities/users-api";
+import { Link } from "react-router-dom";
 
-export default function ItineraryPageThree({ user }) {
+export default function ItineraryPageThree({ user, setUser }) {
   const [exhibitions, setExhibitions] = useState([]);
   const [selectedCard, setSelectedCard] = useState([]);
 
@@ -34,6 +35,12 @@ export default function ItineraryPageThree({ user }) {
       );
       const data = await response.json();
       setExhibitions(data);
+
+      if (data.length >= 2 && chosenDuration >= 1) {
+        setRandomArray(
+          getRandomNumbersWithoutRepeat(0, data.length - 1, chosenDuration)
+        );
+      }
     } catch (error) {
       console.error(error);
     }
@@ -41,11 +48,6 @@ export default function ItineraryPageThree({ user }) {
 
   const handleFetch = async (evt) => {
     await fetchQuery();
-    if (exhibitions.length >= 2 && chosenDuration >= 1) {
-      setRandomArray(
-        getRandomNumbersWithoutRepeat(0, exhibitions.length - 1, chosenDuration)
-      );
-    }
   };
 
   const handleCheckboxChange = (card) => {
@@ -73,6 +75,7 @@ export default function ItineraryPageThree({ user }) {
         itinerary,
       };
       const updatedUser = await updateUser(userId, requestBody);
+      setUser(updatedUser)
       console.log("User updated:", updatedUser);
     } catch (error) {
       console.error("Error updating user:", error);
@@ -152,6 +155,8 @@ export default function ItineraryPageThree({ user }) {
       </section>
 
       <section className="section-container">
+        <h4>Here is what we suggest based on the criteria selected:</h4>
+
         {exhibitions.map((exhibition, index) => {
           if (randomArray.includes(index)) {
             return (
@@ -170,15 +175,23 @@ export default function ItineraryPageThree({ user }) {
           return null;
         })}
       </section>
+      <section className="section-container">
+        {selectedCard.length > 0 && (
+          <p>
+            Selected Exhibitions:{" "}
+            {selectedCard.map((card) => card.title || "Untitled").join(", ")}
+          </p>
+        )}
+      </section>
 
-      {selectedCard.length > 0 && (
-        <p>
-          Selected Exhibitions:{" "}
-          {selectedCard.map((card) => card.title || "Untitled").join(", ")}
-        </p>
-      )}
-
-      <button onClick={handlePatchButtonClick}>Patch User</button>
+      <section className="section-container">
+        <button onClick={handlePatchButtonClick}>Patch User</button>
+      </section>
+      <section className="section-container">
+        <Link to="/itinerary/select">
+          <button>Go to the next page</button>
+        </Link>
+      </section>
     </div>
   );
 }
