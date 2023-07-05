@@ -8,11 +8,6 @@ export default function ItineraryPageTwo({ user }) {
   const [selectedCard, setSelectedCard] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    fetchExhibitions();
-    console.log("Selected Cards:", selectedCard);
-  }, [selectedCard]);
-
   const fetchExhibitions = async () => {
     setIsLoading(true);
     const response = await fetch("/exhibition");
@@ -24,6 +19,11 @@ export default function ItineraryPageTwo({ user }) {
     setAccessibilityOptions(uniqueAccessibilityOptions);
     setIsLoading(false);
   };
+
+  useEffect(() => {
+    fetchExhibitions();
+    console.log("Selected Cards:", selectedCard);
+  }, [selectedCard]);
 
   const handleCheckboxChange = (card) => {
     setSelectedCard((prevSelectedCards) => {
@@ -58,7 +58,6 @@ export default function ItineraryPageTwo({ user }) {
     }
     console.log(user);
   };
-
   return (
     <div className="page-container">
       <h1>Welcome {user.name}!</h1>

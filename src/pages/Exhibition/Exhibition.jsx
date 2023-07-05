@@ -1,13 +1,12 @@
 import "../../pages/Exhibition/Exhibition.css";
 import HeaderImage from "../../components/HeaderImage/HeaderImage";
 import Dropbox from "../../components/Dropbox/Dropbox";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import CardCollection from "../../components/Card/CardCollection";
 
 export default function Exhibition() {
-
   const [exhibitions, setExhibitions] = useState([]);
-  
+
   const [accessibility, setAccessibility] = useState("For%20All");
   const [status, setStatus] = useState("");
 
@@ -19,14 +18,23 @@ export default function Exhibition() {
     setStatus(e);
   };
 
-  const dropbox_accessibility = ["For All","Adults","Children","Families","Seniors","Special Needs","Students","Teachers"];
+  const dropbox_accessibility = [
+    "For All",
+    "Adults",
+    "Children",
+    "Families",
+    "Seniors",
+    "Special Needs",
+    "Students",
+    "Teachers",
+  ];
   const dropbox_status = ["Current", "Upcoming", "Past"];
   const src = "https://picsum.photos/id/237/300/200";
 
   useEffect(() => {
     const fetchExhibitions = async () => {
       try {
-        const response = await fetch('/exhibition');
+        const response = await fetch("/exhibition");
         const data = await response.json();
         setExhibitions(data);
       } catch (error) {
@@ -34,17 +42,19 @@ export default function Exhibition() {
       }
     };
     fetchExhibitions();
-    }, []);
+  }, []);
 
-    const fetchQuery = async () => {
-      try {
-        const response = await fetch('/exhibition/search?accessibility=FOR%20ALL&status=current');
-        const data = await response.json();
-        setExhibitions(data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+  const fetchQuery = async () => {
+    try {
+      const response = await fetch(
+        "/exhibition/search?accessibility=FOR%20ALL&status=current"
+      );
+      const data = await response.json();
+      setExhibitions(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -64,13 +74,11 @@ export default function Exhibition() {
           <p>{accessibility}</p>
           <p>{status}</p>
         </form>
-        <CardCollection data = {exhibitions} />
+        <CardCollection data={exhibitions} />
       </div>
     </>
   );
 }
-
-
 
 /*
 

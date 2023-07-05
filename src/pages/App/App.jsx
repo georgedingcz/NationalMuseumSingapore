@@ -20,6 +20,7 @@ import PrivacyStatement from "../PrivacyStatement/PrivacyStatement";
 import TermsOfUse from "../TermsOfUse/TermsOfUse";
 import TourPage from "../Tour/TourPage";
 import ItineraryPageTwo from "../ItineraryPage/ItineraryPageTwo";
+import ItineraryPageThree from "../ItineraryPage/ItineraryPageThree";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -43,7 +44,7 @@ export default function App() {
             path="/itinerary"
             element={
               user ? (
-                <ItineraryPageTwo user={user} />
+                <ItineraryPageThree user={user} />
               ) : (
                 <Navigate to="/auth" replace />
               )
