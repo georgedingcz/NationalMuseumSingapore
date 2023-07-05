@@ -28,9 +28,15 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/map" element={<MapPage />} />
+
           <Route path="/exhibition" element={<Exhibition />} />
+          <Route path="/exhibition/search" element={<Exhibition />} />
+
           <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
+          <Route path="/exhibition/search/:id" element={<ExhibitionDetails />} />
+
           <Route path="/ticketing" element={<TicketingPage />} />
+          <Route path="/ticketing/:id" element={<TicketingPage />} />
           <Route path="/check-out" element={<CheckOutPage />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/privacy" element={<PrivacyStatement />} />
