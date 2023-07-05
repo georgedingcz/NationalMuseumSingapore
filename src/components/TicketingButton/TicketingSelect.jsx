@@ -1,4 +1,4 @@
-export default function CheckoutPage() {
+export default function TicketingSelect() {
   return (
     <div className="section-container">
       <div className="checkout">

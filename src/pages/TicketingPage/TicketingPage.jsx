@@ -1,4 +1,5 @@
-import CheckoutPage from "../../components/TicketingButton/CheckoutPage1";
+import TicketingDetails from "../../components/TicketingButton/TicketingDetails";
+import TicketingSelect from "../../components/TicketingButton/TicketingSelect";
 import "./TicketingPage.css";
 
 export default function TicketingPage() {
@@ -9,7 +10,8 @@ export default function TicketingPage() {
           <p>Ticketing</p>
           <div className="progress">progress tracker thing</div>
         </div>
-        <CheckoutPage />
+        <TicketingSelect />
+        <TicketingDetails />
       </div>
     </>
   );

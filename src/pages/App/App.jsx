@@ -5,7 +5,6 @@ import "./App.css";
 import AuthPage from "../AuthPage/AuthPage";
 import NavBar from "../../components/NavBar/NavBar";
 import TicketingPage from "../TicketingPage/TicketingPage";
-import CheckOutPage from "../TicketingPage/CheckOutPage";
 import Exhibition from "../Exhibition/Exhibition";
 import HomePage from "../HomePage/HomePage";
 import MapPage from "../MapPage/MapPage";
@@ -34,7 +33,6 @@ export default function App() {
           <Route path="/exhibition" element={<Exhibition />} />
           <Route path="/exhibition/:id" element={<ExhibitionDetails />} />
           <Route path="/ticketing" element={<TicketingPage />} />
-          <Route path="/check-out" element={<CheckOutPage />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/privacy" element={<PrivacyStatement />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
