@@ -48,10 +48,10 @@ const patch = async (req, res) => {
         filter: { _id: id },
         update: {
           $set: {
-            itinerary: {
+            itinerary: itinerary.map((item) => ({
               exhibitionId: item.selectedCardId,
               exhibitionName: item.selectedCardTitle,
-            },
+            })),
           },
         },
       },
@@ -71,8 +71,8 @@ const deleteItinerary = async (req, res) => {
   const { id } = req.params;
   try {
     const user = await User.findById(id);
-    await user.itinerary.deleteMany()
-    await user.save()
+    await user.itinerary.deleteMany();
+    await user.save();
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json({ err });
