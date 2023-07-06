@@ -47,11 +47,7 @@ export default function TicketingPage() {
   return (
     <>
       <div className="page-container">
-        <div className="section-container">
-          <p>Ticketing</p>
-          <div className="progress">progress tracker thing</div>
-        </div>
-
+        <h3>Ticketing</h3>
         <Routes>
           <Route
             path="/"
