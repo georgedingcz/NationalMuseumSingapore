@@ -43,19 +43,21 @@ export default function HomePage() {
         <TicketingButton />
       </div>
 
-      <div className="section-container">
+      <div className="section-container card-collection-fix">
         <h2>Happening Now</h2>
+        <div className="card-collection-fix">
           <CardCollectionSlider data={happenings} />
-        {/*<CardCollection data ={happenings} />*/}
+        </div>
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
         </Link>
       </div>
 
-      <div className="section-container">
+      <div className="section-container card-collection-fix">
         <h2>Exhibitions</h2>
-          <CardCollectionSlider data ={exhibitions} />
-        {/*<CardCollection data ={exhibitions} />*/}
+        <div className="card-collection-fix">
+          <CardCollectionSlider data={exhibitions} />
+        </div>
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>

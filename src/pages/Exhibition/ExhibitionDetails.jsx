@@ -31,7 +31,7 @@ export default function ExhibitionDetails(props) {
           <p>{value[1]}</p>
         ))}
 
-        <Link className="link" to={"/ticketing/"+exhibition?._id}>
+        <Link className="link" to={"/ticketing"}>
             <p>Buy Tickets</p>
         </Link>
 

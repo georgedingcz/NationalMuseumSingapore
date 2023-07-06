@@ -53,7 +53,7 @@ export default function Exhibition() {
           accessibility: accessURL,
           status: statusURL.toLowerCase()
         });
-        navigate('/exhibition/search?' + searchParams.toString());
+        navigate('/exhibition?' + searchParams.toString());
       } catch (error) {
         console.error(error);
       }
