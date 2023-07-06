@@ -11,11 +11,6 @@
     justify-content: center;
 }
 
-.header-container img {
-    object-fit: cover;
-    width: 100%;
-}
-
 .row {
     display: flex;
     flex-direction: row;
@@ -29,26 +24,8 @@
     text-decoration: none;
 }
 
-.card-container {
-    transition: 0.1s;
-    background-color: white;
-    width: 300px;
-    margin: 10px;
-    outline: 0px solid #45779f;
-    text-align: left;
-    padding: 0 0 40px 0;
-}
-
-.card-container:hover {
-    cursor: pointer;
-    outline: 3px solid #45779f;
-}
-
 .image-container {
     width: 100%;
-}
-
-.image-container img {
 }
 
 .exhibition-title {
@@ -72,3 +49,41 @@
     margin: 0;
     padding: 0;
 }
+
+button {
+    cursor: pointer;
+    outline: 0;
+    color: #fff;
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    border: 1px solid transparent;
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 200px;
+  }
+  
+  button :hover {
+    color: #fff;
+    background-color: #0b5ed7;
+    border: 1px solid black;
+  }
+  
+  button :disabled, form:invalid button[type="submit"] {
+    cursor: not-allowed;
+    background-color: grey;
+  }
+
+select {
+    flex-basis: calc(50% - 5px);
+    width: 200px;
+    padding: 6px 12px;
+    background-color: rgb(220, 220, 220);
+    border: 1px solid rgb(48, 63, 91);
+    color: black;
+  }

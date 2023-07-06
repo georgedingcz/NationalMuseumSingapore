@@ -90,6 +90,7 @@ nav a:hover {
 }
 
 .section-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-items: center;
@@ -103,22 +104,9 @@ nav a:hover {
   scroll-snap-type: y mandatory;
 }
 
-.card-collection-fix {
+.section-container.no-flex {
   display: block;
 }
-
-.display-flex {
-  display: flex;
-}
-
-/* .section-container div{
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  justify-self: center;
-  width: 80%;
-  scroll-snap-align: start;
-} */
 
 button {
   cursor: pointer;
