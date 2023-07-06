@@ -50,7 +50,11 @@ const patch = async (req, res) => {
           $set: {
             itinerary: itinerary.map((item) => ({
               exhibitionId: item.selectedCardId,
-              exhibitionName: item.selectedCardTitle,
+              title: item.selectedCardTitle,
+              image: item.selectedCardImage,
+              date: item.selectedCardDate,
+              content: item.selectedCardContent,
+              additional_notes: item.selectedCardAdditionalNotes,
             })),
           },
         },

@@ -20,8 +20,8 @@ export default function CardCollectionSlider(props) {
                 modules={[Pagination]}
                 className="mySwiper"
             >
-                {props.data.map((card) => (
-                    <SwiperSlide>
+                {props.data.map((card, index) => (
+                    <SwiperSlide key={index}>
                         <Link className="link" to={"exhibition/"+card._id}>
                             <Card card={card} />
                         </Link>
