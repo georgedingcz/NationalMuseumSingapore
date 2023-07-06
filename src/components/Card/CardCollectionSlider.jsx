@@ -22,7 +22,7 @@ export default function CardCollectionSlider(props) {
             >
                 {props.data.map((card) => (
                     <SwiperSlide>
-                        <Link className="link" to={card._id}>
+                        <Link className="link" to={"exhibition/"+card._id}>
                             <Card card={card} />
                         </Link>
                     </SwiperSlide>

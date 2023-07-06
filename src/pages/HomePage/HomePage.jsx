@@ -45,7 +45,7 @@ export default function HomePage() {
 
       <div className="section-container">
         <h2>Happening Now</h2>
-          <CardCollectionSlider data ={happenings} />
+          <CardCollectionSlider data={happenings} />
         {/*<CardCollection data ={happenings} />*/}
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
