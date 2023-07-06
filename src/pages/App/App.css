@@ -30,19 +30,6 @@ body {
   overflow-y: auto;
 }
 
-.page-container {
-  margin-top: 75px;
-  background-color: white;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 2px solid red;
-  flex: 1;
-  box-sizing: border-box;
-  padding: 1%;
-}
-
 
 .footer {
  width: 100%;
@@ -89,6 +76,19 @@ nav a:hover {
   font-size: larger;
 }
 
+.page-container {
+  margin-top: 75px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+  flex: 1;
+  box-sizing: border-box;
+  padding: 1%;
+}
+
 .section-container {
   display: flex;
   flex-direction: column;
@@ -104,14 +104,9 @@ nav a:hover {
   scroll-snap-type: y mandatory;
 }
 
-/* .section-container div{
-  display: flex;
-  align-self: center;
-  justify-content: center;
-  justify-self: center;
-  width: 80%;
-  scroll-snap-align: start;
-} */
+.section-container.no-flex {
+  display: block;
+}
 
 button {
   cursor: pointer;

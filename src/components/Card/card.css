@@ -1,20 +1,19 @@
 #app {
   height: 100%;
-  all: none;
 }
 
 .card-container {
-    display: flex;
-    flex-direction: column;
-    max-width:200%;
-    min-width: 100px;
-    gap: 10px;
-    list-style: none;
-    box-sizing: border-box;
-    padding: 5%;
-    border-radius: 10px;
-    background-color: antiquewhite;
-    font-size: 1em;
+  gap: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  transition: 0.1s;
+  background-color: white;
+  width: 300px;
+  margin: 10px;
+  outline: 0px solid #45779f;
+  text-align: left;
+  padding: 0 0 40px 0;
 }
 
 .image-container {
@@ -23,7 +22,7 @@
 }
 
 .card-container img {
-    max-width: 100%;
+    width: 100%;
     border-radius: 5px;
     display: flex;
 }
@@ -68,6 +67,9 @@
 .swiper-slide {
   text-align: center;
   font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,4 +80,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.link {
+  margin: 10px;
 }
