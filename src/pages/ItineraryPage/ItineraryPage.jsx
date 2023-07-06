@@ -69,6 +69,10 @@ export default function ItineraryPage({ user, setUser }) {
         selectedCardId: card._id,
         selectedCardTitle: card.title || "Untitled",
         dateOfVisit: new Date(), // Assign the current date as the date of visit
+        selectedCardImage: card.image,
+        selectedCardDate: card.date,
+        selectedCardContent: card.content,
+        selectedCardAdditionalNotes: card.additional_notes,
       }));
       console.log("Itinerary:", itinerary);
       const requestBody = {

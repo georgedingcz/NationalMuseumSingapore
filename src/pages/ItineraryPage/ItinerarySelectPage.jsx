@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import Card from "../../components/Card/Card";
 
 export default function ItinerarySelectPage({ user, setUser }) {
   const navigate = useNavigate();
@@ -37,7 +38,9 @@ export default function ItinerarySelectPage({ user, setUser }) {
       </section>
       <section className="section-container">
         {user.itinerary?.map((each, index) => (
-          <div key={index}>{each.exhibitionName}</div>
+          <div key={index}>
+            <Card card={each} />
+          </div>
         ))}
       </section>
       <section className="section-container">
