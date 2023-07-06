@@ -38,8 +38,7 @@ export default function App() {
             element={<ExhibitionDetails />}
           />
 
-          <Route path="/ticketing" element={<TicketingPage />} />
-          <Route path="/ticketing/:id" element={<TicketingPage />} />
+          <Route path="/ticketing/*" element={<TicketingPage />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/privacy" element={<PrivacyStatement />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />

@@ -47,7 +47,6 @@
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
-    border: 1px blue solid;
   }
   
   .details-container button,
@@ -118,3 +117,31 @@
     opacity: 0.6;
   }
   
+  .form-section {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 0.3%;
+    box-sizing: border-box;
+    max-width: 350px;
+    width: 350px;
+    min-width: 250px;
+  }
+
+  .form-section input, .form-section select {
+    background-color: white;
+    max-width: 150px;
+    max-height: 100px;
+  }
+
+  .button-section {
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .checkout-form-container form > h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
