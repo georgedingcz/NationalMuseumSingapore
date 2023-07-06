@@ -6,20 +6,21 @@
   text-align: center;
   justify-items: center;
   width: max-content;
+  max-width: 100%;
   margin-bottom: 2%;
   margin-top: 2%;
 }
 
 .tourCard img {
   max-width: 600px;
-  min-width: 300px;
+  min-width: 200px;
   display: flex;
 }
 
 .disclaimer-box {
   border: 2px blue solid;
-  min-width: 300px;
-  max-width: 40%;
+  min-width: 200px;
+  max-width: 500px;
   box-sizing: border-box;
   padding: 2%;
   border-radius: 10px;
@@ -75,6 +76,6 @@
 }
 
 .tour-lang-schedule {
-  font-size: 10px;
+  font-size: 0.7rem;
   color: grey;
 }

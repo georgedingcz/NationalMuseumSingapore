@@ -8,12 +8,14 @@
   display: flex;
   flex-direction: column;
   transition: 0.1s;
-  background-color: white;
+  background-color: rgb(255, 254, 203);
   width: 300px;
   margin: 10px;
   outline: 0px solid #45779f;
   text-align: left;
-  padding: 0 0 40px 0;
+  padding: 5%;
+  border-radius: 20px;
+  box-sizing: border-box;
 }
 
 .image-container {
@@ -29,10 +31,10 @@
 
 .card-container .description {
     display: flex;
-    border: 1px red solid;
     text-align: justify;
     padding: 2%;
     font-size: 0.9rem;
+    
 }
 
 .card-container ul {
@@ -43,20 +45,23 @@
 .card-container > .moreinfo {
     text-align: center;
     font-size: 0.8rem;
-    border: 1px red solid;
+    background-color: rgb(255, 206, 208);
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .card-container > .title p{
     font-size: 1.2rem;
     text-align: center;
     font-weight: bold;
-    border: 1px red solid;
+
 }
 
 .card-container > .date {
-    border: 1px red solid;
     text-align: center;
     font-size: 0.8rem;
+    background-color: rgb(255, 206, 208);
 }
 
 .swiper {

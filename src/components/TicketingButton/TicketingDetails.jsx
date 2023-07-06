@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function TicketingDetails() {
-  const [formState, setFormState] = useState({
-    quantity: 0,
-    nationality: "",
-    ticketType: "",
-    selectedDate: null, // Add selectedDate field to formState
-  });
+export default function TicketingDetails({
+  formState: initialFormState,
+  onUpdateFormState,
+}) {
+  const navigate = useNavigate();
+  const [formState, setFormState] = useState(initialFormState);
 
   const [ticketPrices, setTicketPrices] = useState({
     Adult: 20,
@@ -16,6 +14,30 @@ export default function TicketingDetails() {
     Senior: 5,
     Student: 5,
   });
+
+  useEffect(() => {
+    const calculateTicketPrice = () => {
+      if (formState.nationality === "Singaporeans & PR") {
+        setFormState((prevState) => ({
+          ...prevState,
+          ticketPrice: 0,
+        }));
+      } else if (formState.ticketType && formState.quantity) {
+        const price = ticketPrices[formState.ticketType];
+        const totalPrice = price * formState.quantity;
+        setFormState((prevState) => ({
+          ...prevState,
+          ticketPrice: totalPrice,
+        }));
+      }
+    };
+    calculateTicketPrice();
+  }, [
+    formState.nationality,
+    formState.ticketType,
+    formState.quantity,
+    ticketPrices,
+  ]);
 
   const handleQuantity = (operation) => {
     if (operation === "increase") {
@@ -51,12 +73,17 @@ export default function TicketingDetails() {
     }
   };
 
-  const handleDateSelection = (date) => {
+  const handleDateSelection = (event) => {
+    const selectedDate = event.target.value;
     setFormState((prevState) => ({
       ...prevState,
-      selectedDate: date,
+      selectedDate: selectedDate,
     }));
-    console.log(formState);
+  };
+
+  const handleProceedPayment = () => {
+    onUpdateFormState(formState);
+    navigate("/ticketing/check-out", { state: formState });
   };
 
   return (
@@ -137,9 +164,7 @@ export default function TicketingDetails() {
             formState.ticketType
               ? formState.nationality === "Singaporeans & PR"
                 ? "Free"
-                : `SGD ${
-                    ticketPrices[formState.ticketType] * formState.quantity
-                  }`
+                : `SGD ${formState.ticketPrice}`
               : ""
           }
         />
@@ -148,14 +173,14 @@ export default function TicketingDetails() {
       <section className="details-container">
         <div className="number-button">
           <h3>Select Date</h3>
-          <DatePicker
-            selected={formState.selectedDate}
+          <input
+            type="date"
+            value={formState.selectedDate}
             onChange={handleDateSelection}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Select a date"
           />
         </div>
       </section>
+      <button onClick={handleProceedPayment}>Proceed To Payment</button>
     </div>
   );
 }
