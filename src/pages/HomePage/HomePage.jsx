@@ -2,7 +2,6 @@ import MuseumCard from "../../components/Museum/MuseumCard";
 import TicketingButton from "../../components/TicketingButton/TicketingButton";
 import "../HomePage/HomePage.css";
 import { Link } from "react-router-dom";
-import CardCollection from "../../components/Card/CardCollection";
 import CardCollectionSlider from "../../components/Card/CardCollectionSlider";
 import React, { useEffect, useState } from 'react';
 
@@ -43,25 +42,25 @@ export default function HomePage() {
         <TicketingButton />
       </div>
 
-      <div className="section-container card-collection-fix">
+      <div className="section-container no-flex card-collection-fix">
         <h2>Happening Now</h2>
         <div className="card-collection-fix">
           <CardCollectionSlider data={happenings} />
         </div>
+      </div>
         <Link to="/itinerary">
           <button>ITINERARY PLANNER</button>
         </Link>
-      </div>
 
-      <div className="section-container card-collection-fix">
+      <div className="section-container no-flex card-collection-fix">
         <h2>Exhibitions</h2>
         <div className="card-collection-fix">
           <CardCollectionSlider data={exhibitions} />
         </div>
+      </div>
         <Link to="/map">
           <button>MUSEUM MAP</button>
         </Link>
-      </div>
     </div>
   );
 }
