@@ -1,14 +1,10 @@
-.header-container {
-    width: 100%;
-    height:max-content
+#header-container {
+    height: 400px;
+    overflow: hidden;
 }
 
-.header-container {
+#header-container img {
     width: 100%;
-    height: 250px;
-    display: flex;
-    align-self: center;
-    justify-content: center;
 }
 
 .row {
