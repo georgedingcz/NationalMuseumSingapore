@@ -1,58 +1,80 @@
 .tourCard {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border: 1px green solid;
-    text-align: center;
-    justify-items: center;
-    width: max-content;
-    margin-bottom: 2%;
-    margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px green solid;
+  text-align: center;
+  justify-items: center;
+  width: max-content;
+  margin-bottom: 2%;
+  margin-top: 2%;
 }
 
 .tourCard img {
-    max-width: 600px;
-    min-width: 300px;
-    display: flex;
+  max-width: 600px;
+  min-width: 300px;
+  display: flex;
 }
 
 .disclaimer-box {
-    border: 2px blue solid;
-    min-width: 300px;
-    max-width: 40%;
-    box-sizing: border-box;
-    padding: 2%;
-    border-radius: 10px;
-    text-align: justify;
+  border: 2px blue solid;
+  min-width: 300px;
+  max-width: 40%;
+  box-sizing: border-box;
+  padding: 2%;
+  border-radius: 10px;
+  text-align: justify;
 }
 
 .tourCard-header {
-    justify-content: center;
-    align-items: center;
-    height: 80px;
-    display: flex;
-    cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  display: flex;
+  cursor: pointer;
 }
 
-.tourCard-lang{
-    justify-content: space-between;
-    align-items: center;
-    height: 55px;
-    display: flex;
-    cursor: pointer;
-    box-sizing: border-box;
-    padding: 5%;
-    border: 0.5px green solid;
+.tourCard-lang {
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  display: flex;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 5%;
+  border: 0.5px green solid;
+}
+
+.tourCard-lang-expand {
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  display: flex;
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 5%;
+  border: 0.5px green solid;
 }
 
 .tourbtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    color: black;
-    font-weight: bolder;
-    width: 25px;
-    height: 25px;
-    font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  color: black;
+  font-weight: bolder;
+  width: 25px;
+  height: 25px;
+  font-size: larger;
+}
+
+.lang-n-schedule {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.tour-lang-schedule {
+  font-size: 10px;
+  color: grey;
 }
