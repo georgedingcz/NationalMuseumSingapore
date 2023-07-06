@@ -1,3 +1,8 @@
+#app {
+  height: 100%;
+  all: none;
+}
+
 .card-container {
     display: flex;
     flex-direction: column;
@@ -21,7 +26,6 @@
     max-width: 100%;
     border-radius: 5px;
     display: flex;
-    
 }
 
 .card-container .description {
@@ -54,4 +58,24 @@
     border: 1px red solid;
     text-align: center;
     font-size: 0.8rem;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
