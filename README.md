@@ -1,144 +1,42 @@
-# nsm
+<img src="https://imgur.com/n8MK9dN.png">
 
+# National Museum Of Singapore
 
-Action Plan:
+Welcome to the National Museum of Singapore, a treasure trove of history and culture that invites you to embark on an inspiring journey through the vibrant tapestry of Singapore's past.
 
-- Look through the figma and split up the pages here:
+As the oldest museum in the country, the National Museum stands as a beacon of knowledge and heritage, offering visitors a profound understanding of Singapore's rich and diverse heritage. Stepping through our doors, you will be immersed in a world where captivating exhibits, immersive storytelling, and cutting-edge technology converge to create an unforgettable experience.
 
-- Figure out the components in each page
-- Split up the work
+Explore our meticulously curated galleries that span across multiple levels, each unveiling a different chapter in Singapore's history. From the ancient civilizations that shaped the region to the tumultuous years of colonial rule, and the remarkable transformation into a modern metropolis, the museum presents a comprehensive narrative that celebrates Singapore's triumphs and acknowledges its challenges.
 
-## Wireframe
-https://www.figma.com/file/4sBeKefkBS5UzAGmY4yHeb/NSM?type=design&node-id=0%3A1&mode=design&t=4KwHMzyzEtGzvV4L-1
+Marvel at the museum's awe-inspiring collection of artifacts, photographs, and interactive displays that showcase the cultural mosaic of Singapore. Engage with the stories of the people who have contributed to the nation's growth and gain insights into the pivotal moments that have shaped Singapore's identity.
 
-### https://www.figma.com/proto/LOcJaNobmKpiFwERVDu6hJ/NMS-Hi-Fi-1.0?page-id=0%3A1&type[…]2C2506%2C0.26&scaling=scale-down&starting-point-node-id=17%3A3
+Beyond the galleries, the National Museum hosts a vibrant calendar of events, including thought-provoking exhibitions, captivating performances, and enlightening workshops. These events offer opportunities for visitors of all ages to delve deeper into various aspects of Singapore's heritage and engage with the cultural landscape in meaningful ways.
 
+Whether you are a history enthusiast, a curious traveler, or simply seeking a deeper understanding of Singapore's past, the National Museum of Singapore promises an enriching and immersive experience that will leave an indelible mark on your journey. Join us as we uncover the captivating stories that define our nation's unique tapestry of culture and heritage.
 
-### Task Tracker
-https://trello.com/invite/b/KhI36xOk/ATTIef4ea02bcd8b04ee0d26be98e30ffd098B6710B9/nsm-ga
+<img src="https://imgur.com/rCWZJUL.png">
 
-## Overall Concept:
+# Technologies And Libaries Used
+- HTML
+- CSS
+- Javascript
+- React
+- Express
+- Node
+- MongoDB
+- Mongoose
+- [**SwiperJS**](https://swiperjs.com/)
 
-## General components (belong to all)
-<!-- I think it's probably 1 Navigation component with Link tags surrounding <img> <div> (for buy tickets) and <ul><li> -->
-- NAV (in horizontal flex) (not sure if it's 3 components in this case)
-    - NSM logo
-    - (link to) buy tickets
-    - dropdown list for other options 
-- Footer
-    - Component 1 (link to) socials 
-    - Component 2 NSM logo
-    - Component 3 subscription suggestion
-        - text to suggest subscribing
-        - (link to) subscribe page?
-    - Component 4 hours and address
-        - address
-        - opening hours
-        - admission fee (sort of)
-    - Component 5 of links
-        - (link to) visit page
-        - (link to) exhibitions page
-        - (link to) tours page
-        - (link to) programmes page
-        - (link to) retail & dining page
-        - (link to) research & publications page
-        - (link to) support page
-        - (link to) who we are page
-    - Component 6 QR code stuff
-        - qr code
-        - screenshot of what to expect
-    - Component 7 of logos
-        - two awards
-    - Component 8 (link to) contact page
-    - Component 9 (Optional)
-        - Other navigation links
+# Wireframes
+[**Figma**](https://www.figma.com/file/4sBeKefkBS5UzAGmY4yHeb/NSM?type=design&node-id=0%3A1&mode=design&t=OITM16ySP60qiiIf-1)<br>
+<img src="https://imgur.com/o7rUESD.png">
 
-## Page 1 -- Homepage
-- Component 1 (nsm image)
-- Component 2 (welcome)
-    - welcome (header)
-    - brief introduction to NSM
-    - opening hours
-    - (link to) buying tickets
-- Component 3 (happening now)
-    - happening now (header)
-    - collection of components (filtered to 4 by date) each having:
-        - picture of exhibition
-        - exhibition timeline details
-        - brief description of the exhibition
-    - intenary planner mini component
-        - 'don't know what to do'
-        - (link to) itinerary planner
-- Component 4 (exhibitions)
-    - exhibitions (header)
-    - collection of components (filtered to 4 by name?) each having:
-        - picture of exhibition
-        - exhibition timeline details
-        - brief description of the exhibition
-    -  map mini component
-        - 'feeling lost'
-        - (link to) map
+# Task allocation example
+[**Trello**](https://trello.com/b/KhI36xOk/nsm-ga)<br>
+<img src="https://imgur.com/qgYCozg.png">
 
-## Page 2 -- Visit Page
-- Component 1 (image)
-- Component 2 (visitor information)
-    - visitor info (header)
-    - opening hours
-    - (link to buy tickets)
-- Component 3 link to admission prices
-    - admission prices (header)
-    - (link to) ticket pricing
-- Component 4 getting there
-    - getting here (header)
-    - map
-    - contact information
-    - feeling lost (header)
-    - (link to) map
-    
-## Page 3 -- Itinerary Page
-- Component 5
-    - Itinerary Planner
-    - Drop-down boxes
-    - Show my itinerary button
+# The Team
 
-## Page 4 -- Exhibitions Page
-- Component 6
-    - Our exhibitions
-        - Header
-        - Drop-down boxes
-        - Filter button
-- Component 7
-    - Exhibtions (sets)
-        - Image
-        - Description
-## Page 5 -- Tours Page
-- Component 8 
-    -Header
-    -Description of guided tours
-- Component 9 
-    - Tours (sets)
-        - Image
-        - Language selection
-
-## Bonus Only
-### Page 6 -- Museum Map Page
-### Page 7 -- Retail & Dining Page
-### Page 8 -- Research & Publications Page
-### Page 9 -- Support Page
-
-## Database stuff (to then be included in our googlesheet)
-- Sheet 1 (User)
-    - Username
-    - Password
-    - Name of the user
-    - Ticket(s) purchased
-- Sheet 2 (Exhibition)
-    - Exhibition name
-    - Time and/or Date of exhibition
-    - Description of exhibition
-    - Price of exhibition
-    - Ticket for the exhibition
-- Sheet 3 (Ticket)
-    - (R) Exhibition name
-    - (R) Time and/or Date of exhibition
-    - (R) Price of exhibition
+- [Khairul](https://github.com/Khairul-Ikhwan)
+- [George](https://github.com/soursorbet)
+- [Timothy](https://github.com/genotabby)
