@@ -9,7 +9,7 @@
 
 # Icon must end with two \r
 Icon
-
+ 
 
 # Thumbnails
 ._*
@@ -64,5 +64,5 @@ $RECYCLE.BIN/
 node_modules
 .DS_Store
 
-### dotenv ###
-.env
+# ### dotenv ###
+# .env
