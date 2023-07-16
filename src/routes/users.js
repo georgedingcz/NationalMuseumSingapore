@@ -9,4 +9,4 @@ router.patch("/", usersCtrl.patch);
 
 router.delete('/:id/itinerary', usersCtrl.deleteItinerary);
 
-module.exports = router;
+module.exports = router; 
